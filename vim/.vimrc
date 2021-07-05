@@ -1,3 +1,5 @@
+" To use clipboard on manjaro
+set clipboard+=unnamedplus
 syntax on
 
 set rnu
