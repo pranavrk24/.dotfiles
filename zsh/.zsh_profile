@@ -1,2 +1,2 @@
 # To add npm bin path to $PATH
-export PATH:$PATH:/usr/bin/npm
+export PATH=$PATH:/usr/bin/npm

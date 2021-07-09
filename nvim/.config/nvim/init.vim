@@ -17,8 +17,8 @@ set smartcase
 set noswapfile
 set nobackup
 set showtabline=2
-" set undodir=~/.vim/undodir
-" set undofile
+set undodir=~/.vim/undodir
+set undofile
 set incsearch
 set termguicolors
 set scrolloff=8
@@ -28,7 +28,8 @@ set diffopt+=vertical
 " Give more space for displaying messages.
 set cmdheight=2
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delay time"
+" Having longer updatetime (default is 4000 ms = 4 s) leads to 
+" noticeable delay time"
 set updatetime=50
 
 " " Don't pass messages to |ins-completion-menu|.
@@ -59,10 +60,12 @@ call plug#end()
 
 colorscheme gruvbox
 set background=dark
-let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_contrast_dark='hard'
 
 set colorcolumn=80,120
-highlight ColorColumn ctermbg=0 guibg=black
+highlight ColorColumn ctermbg=0 guibg=grey
+hi SignColumn guibg=none
+hi CursorLineNR guibg=none
 
 let mapleader = " "
 
@@ -75,5 +78,6 @@ nnoremap <leader>Y gg+yG
 lua << EOF
 
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.tsserver.setup{}
 
 EOF
