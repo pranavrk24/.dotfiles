@@ -17,8 +17,8 @@ set smartcase
 set noswapfile
 set nobackup
 set showtabline=2
-set undodir=~/.vim/undodir
-set undofile
+" set undodir=~/.vim/undodir
+" set undofile
 set incsearch
 set termguicolors
 set scrolloff=8
@@ -52,6 +52,9 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+" LSP
+Plug 'neovim/nvim-lspconfig'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -68,3 +71,9 @@ nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg+yG
+
+lua << EOF
+
+require'lspconfig'.pyright.setup{}
+
+EOF

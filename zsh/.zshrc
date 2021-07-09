@@ -106,3 +106,5 @@ alias reload="source ~/.zshrc"
 
 # fzf usage
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source $HOME/.zsh_profile
