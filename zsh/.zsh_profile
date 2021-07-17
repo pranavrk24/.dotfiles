@@ -1,2 +1,3 @@
 # To add npm bin path to $PATH
 export PATH=$PATH:/usr/bin/npm
+export PATH=$PATH:/.local/share/gem/ruby/3.0.0/bin
