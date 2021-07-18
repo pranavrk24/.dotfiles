@@ -74,7 +74,7 @@ nnoremap <leader>u :UndotreeShow<CR>
 
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
-nnoremap <leader>Y gg+yG
+nnoremap <leader>Y gg"+yG
 
 " lsp-config.vim
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
