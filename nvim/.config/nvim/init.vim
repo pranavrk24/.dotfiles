@@ -97,6 +97,7 @@ nnoremap <leader>sf :source $MYVIMRC<CR>
 lua << EOF
 
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.bashls.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.solargraph.setup{}
 
