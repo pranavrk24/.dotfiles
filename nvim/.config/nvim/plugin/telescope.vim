@@ -25,3 +25,4 @@ let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
 let g:compe.source.vsnip = v:true
 
+inoremap <silent><expr> <CR> compe#confirm('<CR>')
