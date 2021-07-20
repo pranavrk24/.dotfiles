@@ -70,16 +70,27 @@ highlight ColorColumn ctermbg=0 guibg=grey
 hi SignColumn guibg=none
 hi CursorLineNR guibg=none
 
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
+
+let g:netrw_browse_split = 0
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
+let g:netrw_localrmdir = 'rm -r'
 
 let mapleader = " "
 
-nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
+
+vnoremap <leader>p "_dP
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
 
 nnoremap <leader>sf :source $MYVIMRC<CR>
 
@@ -92,7 +103,7 @@ require'lspconfig'.solargraph.setup{}
 require('telescope').setup {
     defaults = {
         prompt_prefix = "$ "
-        },
+    },
     extensions = {
         fzf = {
             fuzzy = true,                    -- false will only do exact matching
@@ -100,9 +111,9 @@ require('telescope').setup {
             override_file_sorter = true,     -- override the file sorter
             case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
-            }
         }
     }
+}
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
