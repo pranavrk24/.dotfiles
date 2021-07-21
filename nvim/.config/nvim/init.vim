@@ -54,7 +54,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
