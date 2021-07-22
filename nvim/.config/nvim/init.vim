@@ -99,6 +99,13 @@ nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
 nnoremap <leader>sf :source $MYVIMRC<CR>
 
+fun! EmptyRegisters()
+    let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+    for r in regs
+        call setreg(r, @_)
+    endfor
+endfun
+
 lua << EOF
 
 require'lspconfig'.pyright.setup{}
