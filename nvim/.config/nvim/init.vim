@@ -69,6 +69,8 @@ set colorcolumn=80,120
 highlight ColorColumn ctermbg=0 guibg=grey
 hi SignColumn guibg=none
 hi CursorLineNR guibg=none
+hi Normal guibg=none
+hi NonText guibg=none
 
 if executable('rg')
     let g:rg_derive_root='true'
