@@ -81,6 +81,11 @@ let g:netrw_localrmdir = 'rm -r'
 
 let mapleader = " "
 
+" Tab navigation
+nnoremap th :tabprev<cr>
+nnoremap tl :tabnext<cr>
+nnoremap tn :tabnew<cr>
+
 nnoremap <leader>u :UndotreeToggle<CR>
 
 " Copying to clipboard
