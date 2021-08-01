@@ -47,7 +47,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
 Plug 'vimwiki/vimwiki'
-
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Telescope requirements
 Plug 'nvim-lua/popup.nvim'
@@ -146,6 +146,8 @@ fun! EmptyRegisters()
         call setreg(r, @_)
     endfor
 endfun
+
+lua require'colorizer'.setup()
 
 lua << EOF
 
