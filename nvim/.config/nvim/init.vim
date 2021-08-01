@@ -46,6 +46,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
+Plug 'vimwiki/vimwiki'
+
 
 " Telescope requirements
 Plug 'nvim-lua/popup.nvim'
