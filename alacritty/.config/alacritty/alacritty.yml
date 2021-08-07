@@ -65,7 +65,7 @@ colors:
     white:   '#928374'
   # indexed_colors: []
 
-background_opacity: 0.7
+background_opacity: 0.85
 
 font:
   normal:
