@@ -101,7 +101,7 @@ nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 
-vnoremap <leader>p "_dP
+xnoremap <leader>p "_dP
 
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
