@@ -1,0 +1,20 @@
+# Stop screen from going blank
+xset s off
+xset -dpms
+xset s noblank
+# Faster key repeat and delay
+xset r rate 210 40
+
+# Environment variables set everywhere
+export EDITOR="nvim"
+
+# GO path
+export PATH=$PATH:/usr/local/go/bin
+
+# zsh config dir
+export ZDOTDIR=$HOME/.config/zsh
+
+# XDG paths
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
