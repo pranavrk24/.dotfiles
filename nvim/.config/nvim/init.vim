@@ -50,6 +50,11 @@ Plug '9mm/vim-closer'
 Plug 'vimwiki/vimwiki'
 Plug 'norcalli/nvim-colorizer.lua'
 
+" Markdown files editing
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 " Telescope requirements
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
