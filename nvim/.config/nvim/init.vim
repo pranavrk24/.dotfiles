@@ -37,7 +37,6 @@ set shortmess+=c
 " Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'gruvbox-community/gruvbox'
 Plug 'mbbill/undotree'
