@@ -67,6 +67,10 @@ colors:
 
 background_opacity: 1.0
 
+cursor:
+  style:
+    blinking: Never
+
 font:
   normal:
     family: monospace
