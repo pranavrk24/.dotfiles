@@ -80,7 +80,7 @@ hi SignColumn guibg=none
 hi CursorLineNR guibg=none
 hi Normal guibg=none
 " hi NonText guibg=none
-hi NonText guifg=black
+hi NonText guifg=#505050
 
 if executable('rg')
     let g:rg_derive_root='true'
