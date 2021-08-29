@@ -73,16 +73,16 @@ cursor:
 
 font:
   normal:
-    family: monospace
+    family: JetBrains Mono
     style: Regular
   bold:
-    family: monospace
+    family: JetBrains Mono
     style: Bold
   italic:
-    family: monospace
+    family: JetBrains Mono
     style: Italic
   bold_italic:
-    family: monospace
+    family: JetBrains Mono
     style: Bold Italic
 
   # Point size
