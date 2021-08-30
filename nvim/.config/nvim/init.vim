@@ -23,6 +23,8 @@ set scrolloff=8
 set tags=./tags;/
 set diffopt+=vertical
 set noshowmode
+set list
+set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -76,6 +78,7 @@ hi SignColumn guibg=none
 hi CursorLineNR guibg=none
 hi Normal guibg=none
 hi NonText guibg=none
+hi NonText guifg=#505050
 
 if executable('rg')
     let g:rg_derive_root='true'
