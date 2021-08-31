@@ -23,6 +23,7 @@ set scrolloff=8
 set tags=./tags;/
 set diffopt+=vertical
 set noshowmode
+set mouse=a
 set list
 set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
 
@@ -79,7 +80,7 @@ highlight ColorColumn ctermbg=0 guibg=grey
 hi SignColumn guibg=none
 hi CursorLineNR guibg=none
 hi Normal guibg=none
-" hi NonText guibg=none
+hi NonText guibg=none
 hi NonText guifg=#505050
 
 if executable('rg')

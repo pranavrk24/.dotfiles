@@ -156,6 +156,7 @@ nnoremap <Leader>p "+p
 
 " Built-in search
 nnoremap / <Action>(Find)
+" nnoremap / :action find
 
 " Preserve ideavim search
 nnoremap g/ /
