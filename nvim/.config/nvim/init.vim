@@ -25,12 +25,12 @@ set diffopt+=vertical
 set noshowmode
 set mouse=a
 set list
-set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
+set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:↵
 
 " Give more space for displaying messages.
 set cmdheight=2
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to 
+" Having longer updatetime (default is 4000 ms = 4 s) leads to
 " noticeable delay time"
 set updatetime=50
 
