@@ -154,9 +154,9 @@ nnoremap <Leader>Y gg"+yG
 " Pasting from clipboard
 nnoremap <Leader>p "+p
 
-" Built-in search
-nnoremap / <Action>(Find)
-" nnoremap / :action find
+" Search
+nmap <leader>/ :action Find<cr>
+nmap <leader>\ :action FindInPath<cr>
 
 " Preserve ideavim search
 nnoremap g/ /

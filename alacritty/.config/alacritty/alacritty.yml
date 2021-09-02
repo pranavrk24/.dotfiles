@@ -9,8 +9,8 @@ title: Alacritty
 colors:
   primary:
     # hard contrast background - '#1d2021'
-    background:        &gruvbox_dark_bg '#1d2021'
     # soft contrast background - '#32302f'
+    background:        &gruvbox_dark_bg '#1d2021'
     foreground:        '#ebdbb2'
     bright_foreground: '#fbf1c7'
     dim_foreground:    '#a89984'
@@ -46,7 +46,7 @@ colors:
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
   normal:
-    black:   *gruvbox_dark_bg
+    black:   '#1d2021'
     red:     '#cc241d'
     green:   '#98971a'
     yellow:  '#d79921'
