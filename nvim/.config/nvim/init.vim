@@ -64,7 +64,10 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+
+" Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -208,6 +211,17 @@ require'lualine'.setup {
   },
   tabline = {},
   extensions = {}
+}
+
+require "nvim-treesitter.configs".setup {
+  playground = {
+    enable = true,
+    disable = {},
+    keymaps = {
+      open = 'gtd' -- Opens the playground for current buffer (if applicable)
+    },
+    updatetime = 25 -- Debounced time for highlighting nodes in the playground from source code
+  }
 }
 
 EOF
