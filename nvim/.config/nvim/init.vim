@@ -1,3 +1,5 @@
+" lua require('plugin.lua')
+
 syntax on
 
 set rnu
@@ -51,6 +53,10 @@ Plug 'tpope/vim-endwise'
 Plug '9mm/vim-closer'
 Plug 'vimwiki/vimwiki'
 Plug 'norcalli/nvim-colorizer.lua'
+
+" Snippets
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
 
 " Markdown files editing
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -150,6 +156,17 @@ nnoremap <leader>k :m .-2<CR>==
 nnoremap ; :
 vnoremap ; :
 
+" Lua snip
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+
+
 nnoremap <leader><CR> :source $MYVIMRC<CR>
 
 fun! EmptyRegisters()
@@ -172,7 +189,10 @@ require'lspconfig'.clangd.setup{
 
 require'lspconfig'.bashls.setup{}
 
-require'lspconfig'.tsserver.setup{}
+require'lspconfig'.tsserver.setup{
+    on_attach = on_attach,
+    cmd = { "tsserver" }
+}
 
 require'lspconfig'.solargraph.setup{}
 
