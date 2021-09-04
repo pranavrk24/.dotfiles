@@ -63,6 +63,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/nvim-compe'
 
 " Treesitter
@@ -154,7 +155,7 @@ nnoremap <leader><CR> :source $MYVIMRC<CR>
 fun! EmptyRegisters()
     let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
     for r in regs
-        call setreg(r, @_)
+        call setreg(r, [])
     endfor
 endfun
 
@@ -163,9 +164,17 @@ lua require'colorizer'.setup()
 lua << EOF
 
 require'lspconfig'.pyright.setup{}
+
+require'lspconfig'.clangd.setup{
+    on_attach = on_attach
+}
+
 require'lspconfig'.bashls.setup{}
+
 require'lspconfig'.tsserver.setup{}
+
 require'lspconfig'.solargraph.setup{}
+
 require'lspconfig'.gopls.setup{}
 
 require('telescope').setup {
