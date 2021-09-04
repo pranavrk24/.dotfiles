@@ -148,6 +148,10 @@ inoremap <C-k> :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
 
+" Semicolon to go to command mode
+nnoremap ; :
+vnoremap ; :
+
 nnoremap <leader><CR> :source $MYVIMRC<CR>
 
 fun! EmptyRegisters()
