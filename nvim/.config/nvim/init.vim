@@ -156,6 +156,8 @@ nnoremap <leader>k :m .-2<CR>==
 nnoremap ; :
 vnoremap ; :
 
+tnoremap <Esc> <C-\><C-n>
+
 " Lua snip
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
 inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>

@@ -171,3 +171,6 @@ nnoremap <a-l> gt
 
 " Remove white space
 nmap <leader><space> :%s/\s\+$<CR>
+
+nnoremap ; :
+vnoremap ; :
