@@ -23,8 +23,9 @@ set scrolloff=8
 set tags=./tags;/
 set diffopt+=vertical
 set noshowmode
+set mouse=a
 set list
-set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
+set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:↵
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -39,7 +40,6 @@ set shortmess+=c
 " Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'gruvbox-community/gruvbox'
 Plug 'mbbill/undotree'
@@ -52,6 +52,9 @@ Plug '9mm/vim-closer'
 Plug 'vimwiki/vimwiki'
 Plug 'norcalli/nvim-colorizer.lua'
 
+" Markdown files editing
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 " Telescope requirements
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -61,7 +64,10 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+
+" Tree sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -115,8 +121,6 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
-nnoremap Y y$
-
 " Keep the cursor centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -138,6 +142,11 @@ vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-j> :m .+1<CR>==
 inoremap <C-k> :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
+
+" Semicolon to go to command more
+nnoremap ; :
+vnoremap ; ;
+
 nnoremap <leader>k :m .-2<CR>==
 
 nnoremap <leader><CR> :source $MYVIMRC<CR>
@@ -154,9 +163,18 @@ lua require'colorizer'.setup()
 lua << EOF
 
 require'lspconfig'.pyright.setup{}
+
+require'lspconfig'.clangd.setup{
+    on_attach = on_attach,
+    cmd = {}
+}
+
 require'lspconfig'.bashls.setup{}
+
 require'lspconfig'.tsserver.setup{}
+
 require'lspconfig'.solargraph.setup{}
+
 require'lspconfig'.gopls.setup{}
 
 require('telescope').setup {
@@ -204,5 +222,17 @@ require'lualine'.setup {
   tabline = {},
   extensions = {}
 }
+
+require "nvim-treesitter.configs".setup {
+    playground = {
+    enable = true,
+    disable = {},
+    keymaps = {
+        open = 'gtd' -- Opens the playground for current buffer (if applicable)
+        },
+    updatetime = 25 -- Debounced time for highlighting nodes in the playground from source code
+    }
+}
+
 
 EOF
