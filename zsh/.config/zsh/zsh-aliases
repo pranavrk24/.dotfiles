@@ -12,6 +12,9 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 
+# to show unicode characters in tmux sessions
+alias tmux='tmux -u'
+
 alias ls='ls --color=always'
 
 # easier to read disk
