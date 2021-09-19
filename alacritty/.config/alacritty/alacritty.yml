@@ -86,7 +86,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 9
+  size: 8
 
   offset:
     x: 0
