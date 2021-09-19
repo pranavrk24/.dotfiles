@@ -25,7 +25,7 @@ set diffopt+=vertical
 set noshowmode
 set mouse=a
 set list
-set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:↵
+set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -166,10 +166,12 @@ require'lspconfig'.pyright.setup{}
 
 require'lspconfig'.clangd.setup{
     on_attach = on_attach,
-    cmd = {}
+    cmd = { "clangd", "--background-index" }
 }
 
-require'lspconfig'.bashls.setup{}
+require'lspconfig'.bashls.setup{
+    on_attach = on_attach,
+}
 
 require'lspconfig'.tsserver.setup{}
 
@@ -233,6 +235,5 @@ require "nvim-treesitter.configs".setup {
     updatetime = 25 -- Debounced time for highlighting nodes in the playground from source code
     }
 }
-
 
 EOF
