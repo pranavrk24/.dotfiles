@@ -11,6 +11,8 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 SESSION=${1:-xfce-session}
 
+feh --bg-max --randomize ~/Pictures/wallpapers/* &
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
