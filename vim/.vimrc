@@ -31,7 +31,7 @@ set cmdheight=2
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delay time"
 set updatetime=50
 
-" " Don't pass messages to |ins-completion-menu|.
+" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 set list
 set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
@@ -57,6 +57,9 @@ Plug 'tpope/vim-endwise'
 Plug '9mm/vim-closer'
 Plug 'vimwiki/vimwiki'
 
+" Highlighted yank
+Plug 'machakann/vim-highlightedyank'
+
 " Markdown files editing
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
@@ -66,17 +69,68 @@ colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 
+let g:highlightedyank_highlight_duration=200
+
 set colorcolumn=80,120
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-highlight Normal guibg=NONE ctermbg=NONE
+hi ColorColumn ctermbg=0 guibg=lightgrey
+hi Normal guibg=NONE ctermbg=NONE
+hi Comment cterm=italic gui=italic
+
+let g:netrw_browse_split = 0
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+let g:netrw_localrmdir = 'rm -r'
 
 let mapleader = " "
 
+" Tab navigation
+nnoremap th :tabprev<cr>
+nnoremap tl :tabnext<cr>
+nnoremap tn :tabnew<cr>
+
 nnoremap <leader>u :UndotreeShow<CR>
 
+" Copy to clipboard
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg+yG
+
+xnoremap <leader>p "_dP
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" Vim movement between windows
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+
+" Keep the cursor centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Jumplist mutations
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" Moving text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> :m .+1<CR>==
+inoremap <C-k> :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+
+nnoremap <leader><CR> :source $MYVIMRC<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other

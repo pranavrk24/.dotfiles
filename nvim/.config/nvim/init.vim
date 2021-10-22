@@ -38,7 +38,7 @@ set updatetime=50
 set shortmess+=c
 
 " Plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'gruvbox-community/gruvbox'
@@ -63,7 +63,15 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+
+" Completion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-nvim-lsp'
+
+Plug 'saadparwaiz1/cmp_luasnip'
 
 " Tree sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -79,12 +87,9 @@ set background=dark
 let g:gruvbox_contrast_dark='hard'
 
 set colorcolumn=80,120
-highlight ColorColumn ctermbg=0 guibg=grey
-hi SignColumn guibg=none
-hi CursorLineNR guibg=none
-hi Normal guibg=none
-hi NonText guibg=none
-hi NonText guifg=#505050
+hi ColorColumn ctermbg=0 guibg=grey
+hi Normal guibg=NONE ctermbg=NONE
+hi Comment cterm=italic gui=italic
 
 if executable('rg')
     let g:rg_derive_root='true'
@@ -97,8 +102,8 @@ let g:netrw_localrmdir = 'rm -r'
 
 let mapleader = " "
 
-" Tab navigation
 nnoremap th :tabprev<cr>
+" Tab navigation
 nnoremap tl :tabnext<cr>
 nnoremap tn :tabnew<cr>
 
@@ -142,11 +147,6 @@ vnoremap K :m '<-2<CR>gv=gv
 inoremap <C-j> :m .+1<CR>==
 inoremap <C-k> :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
-
-" Semicolon to go to command more
-nnoremap ; :
-vnoremap ; ;
-
 nnoremap <leader>k :m .-2<CR>==
 
 nnoremap <leader><CR> :source $MYVIMRC<CR>
@@ -193,9 +193,6 @@ require('telescope').setup {
         }
     }
 }
--- To get fzf loaded and working with telescope, you need to call
--- load_extension, somewhere after setup function:
-require('telescope').load_extension('fzf')
 
 require'lualine'.setup {
   options = {
