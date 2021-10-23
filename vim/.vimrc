@@ -39,8 +39,6 @@ set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
 " Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
@@ -69,17 +67,18 @@ colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 
-let g:highlightedyank_highlight_duration=200
+let g:highlightedyank_highlight_duration=150
 
 set colorcolumn=80,120
 hi ColorColumn ctermbg=0 guibg=lightgrey
 hi Normal guibg=NONE ctermbg=NONE
 hi Comment cterm=italic gui=italic
+hi NonText guifg=#808080
 
 let g:netrw_browse_split = 0
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
-let g:netrw_localrmdir = 'rm -r'
+" let g:netrw_localrmdir = 'rm -r'
 
 let mapleader = " "
 

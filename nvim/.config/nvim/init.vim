@@ -88,7 +88,11 @@ let g:gruvbox_contrast_dark='hard'
 
 set colorcolumn=80,120
 hi ColorColumn ctermbg=0 guibg=grey
+" hi SignColumn guibg=NONE
+" hi CursorLineNR guibg=NONE
 hi Normal guibg=NONE ctermbg=NONE
+" hi NonText guibg=NONE
+hi NonText guifg=#808080
 hi Comment cterm=italic gui=italic
 
 if executable('rg')
@@ -157,6 +161,12 @@ fun! EmptyRegisters()
         call setreg(r, @_)
     endfor
 endfun
+
+" Highlighted yank
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=150}
+augroup END
 
 lua require'colorizer'.setup()
 

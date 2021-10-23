@@ -15,12 +15,11 @@ alias rm='rm -i'
 # to show unicode characters in tmux sessions
 alias tmux='tmux -u'
 
-alias ls='ls --color=always'
+alias ls='ls --color=auto'
 
 # easier to read disk
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 
 alias m="git checkout master"
-alias s="git checkout stable"
 
