@@ -87,12 +87,14 @@ nnoremap th :tabprev<cr>
 nnoremap tl :tabnext<cr>
 nnoremap tn :tabnew<cr>
 
+nnoremap <leader>ff :FZF<cr>
+
 nnoremap <leader>u :UndotreeShow<CR>
 
 " Copy to clipboard
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
-nnoremap <leader>Y gg+yG
+nnoremap <leader>Y ggVG"+y
 
 xnoremap <leader>p "_dP
 

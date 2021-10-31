@@ -13,6 +13,8 @@ SESSION=${1:-xfce-session}
 
 feh --bg-max --randomize ~/Pictures/wallpapers/* &
 
+slstatus &
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
