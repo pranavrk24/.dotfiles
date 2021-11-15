@@ -82,6 +82,12 @@ let g:netrw_winsize = 25
 
 let mapleader = " "
 
+" Disable arrow keys
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+
 " Tab navigation
 nnoremap th :tabprev<cr>
 nnoremap tl :tabnext<cr>

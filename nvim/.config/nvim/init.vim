@@ -106,8 +106,14 @@ let g:netrw_localrmdir = 'rm -r'
 
 let mapleader = " "
 
-nnoremap th :tabprev<cr>
+" Disable arrow keys
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+
 " Tab navigation
+nnoremap th :tabprev<cr>
 nnoremap tl :tabnext<cr>
 nnoremap tn :tabnew<cr>
 
