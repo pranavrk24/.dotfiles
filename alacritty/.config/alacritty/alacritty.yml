@@ -65,8 +65,6 @@ colors:
     white:   '#928374'
   # indexed_colors: []
 
-background_opacity: 0.80
-
 cursor:
   style:
     blinking: Never
@@ -86,7 +84,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 8
+  size: 9
 
   offset:
     x: 0
@@ -96,6 +94,7 @@ font:
     y: 0
 
 window:
+  opacity: 0.80
   dynamic_title: false
   padding:
     x: 2
