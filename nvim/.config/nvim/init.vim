@@ -82,6 +82,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
+lua require('radar')
+
 colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='hard'
@@ -194,21 +196,6 @@ require'lspconfig'.tsserver.setup{}
 require'lspconfig'.solargraph.setup{}
 
 require'lspconfig'.gopls.setup{}
-
-require('telescope').setup {
-    defaults = {
-        prompt_prefix = "$ "
-    },
-    extensions = {
-        fzf = {
-            fuzzy = true,                    -- false will only do exact matching
-            override_generic_sorter = false, -- override the generic sorter
-            override_file_sorter = true,     -- override the file sorter
-            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
-        }
-    }
-}
 
 require'lualine'.setup {
   options = {
