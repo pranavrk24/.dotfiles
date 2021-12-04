@@ -40,45 +40,45 @@ set shortmess+=c
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'gruvbox-community/gruvbox'
-" Plug 'mbbill/undotree'
-" Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-rails'
-" Plug 'tpope/vim-endwise'
-" Plug '9mm/vim-closer'
-" Plug 'vimwiki/vimwiki'
-" Plug 'norcalli/nvim-colorizer.lua'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'gruvbox-community/gruvbox'
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+Plug '9mm/vim-closer'
+Plug 'vimwiki/vimwiki'
+Plug 'norcalli/nvim-colorizer.lua'
 
-" " Markdown files editing
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" Markdown files editing
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
-" " Telescope requirements
-" Plug 'nvim-lua/popup.nvim'
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
-" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+" Telescope requirements
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-" " LSP
-" Plug 'neovim/nvim-lspconfig'
+" LSP
+Plug 'neovim/nvim-lspconfig'
 
-" " Completion
-" Plug 'hrsh7th/nvim-cmp'
-" Plug 'hrsh7th/cmp-buffer'
-" Plug 'hrsh7th/cmp-path'
-" Plug 'hrsh7th/cmp-nvim-lua'
-" Plug 'hrsh7th/cmp-nvim-lsp'
+" Completion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-nvim-lsp'
 
-" Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 
-" " Tree sitter
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/playground'
+" Tree sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
-" Plug 'hoob3rt/lualine.nvim'
-" Plug 'kyazdani42/nvim-web-devicons'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
