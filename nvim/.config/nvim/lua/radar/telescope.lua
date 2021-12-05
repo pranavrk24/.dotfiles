@@ -1,8 +1,16 @@
 local telescope = require('telescope')
+local actions = require('telescope.actions')
 
 telescope.setup {
     defaults = {
-        prompt_prefix = "$ "
+        prompt_prefix = "$ ",
+        color_devicons = true,
+        file_ignore_patterns = { "^.git/" },
+        mappings = {
+            i = {
+                ['esc'] = actions.close
+            }
+        }
     },
     extensions = {
         fzf = {
@@ -15,3 +23,23 @@ telescope.setup {
     }
 }
 
+local M = {}
+
+M.search_dotfiles = function()
+    require('telescope.builtin').find_files({
+        prompt_title = "<.dotfiles>",
+        cwd = '~/.dotfiles',
+        hidden = true
+    })
+end
+
+M.project_files = function()
+    local opts = {}
+    local ok = pcall(require('telescope.builtin').git_files, opts)
+    if not ok then require('telescope.builtin').find_files(opts) end
+end
+
+-- vim.api.nvim_set_keymap('n', '<Leader>ff', ':lua require\'radar.telescope\'.project_files()<Cr>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<Leader>df', ':lua require\'radar.telescope\'.search_dotfiles()<Cr>', {noremap = true, silent = true})
+
+return M

@@ -48,9 +48,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
-Plug '9mm/vim-closer'
 Plug 'vimwiki/vimwiki'
 Plug 'norcalli/nvim-colorizer.lua'
+
+" Gitsigns
+Plug 'lewis6991/gitsigns.nvim'
 
 " Markdown files editing
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -71,7 +73,9 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-nvim-lsp'
 
+Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'onsails/lspkind-nvim'
 
 " Tree sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -179,23 +183,6 @@ augroup END
 lua require'colorizer'.setup()
 
 lua << EOF
-
-require'lspconfig'.pyright.setup{}
-
-require'lspconfig'.clangd.setup{
-    on_attach = on_attach,
-    cmd = { "clangd", "--background-index" }
-}
-
-require'lspconfig'.bashls.setup{
-    on_attach = on_attach,
-}
-
-require'lspconfig'.tsserver.setup{}
-
-require'lspconfig'.solargraph.setup{}
-
-require'lspconfig'.gopls.setup{}
 
 require'lualine'.setup {
   options = {
