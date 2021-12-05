@@ -25,12 +25,12 @@ set diffopt+=vertical
 set noshowmode
 set mouse=a
 set list
-set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
+set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:↵
 
 " Give more space for displaying messages.
 set cmdheight=2
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to 
+" Having longer updatetime (default is 4000 ms = 4 s) leads to
 " noticeable delay time"
 set updatetime=50
 
@@ -77,7 +77,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
 
-" Tree sitter
+" Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
@@ -98,8 +98,11 @@ hi ColorColumn ctermbg=0 guibg=grey
 " hi CursorLineNR guibg=NONE
 hi Normal guibg=NONE ctermbg=NONE
 " hi NonText guibg=NONE
-hi NonText guifg=#808080
 hi Comment cterm=italic gui=italic
+hi SignColumn guibg=none
+hi CursorLineNR guibg=none
+hi NonText guibg=none
+hi NonText guifg=#505050
 
 if executable('rg')
     let g:rg_derive_root='true'
@@ -135,12 +138,13 @@ xnoremap <leader>p "_dP
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
-" Vim movement between windows
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+
+" Easier Moving between splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Keep the cursor centered
 nnoremap n nzzzv
@@ -165,12 +169,29 @@ inoremap <C-k> :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
 
+" Semicolon to go to command mode
+nnoremap ; :
+vnoremap ; :
+
+tnoremap <Esc> <C-\><C-n>
+
+" Lua snip
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+
+
 nnoremap <leader><CR> :source $MYVIMRC<CR>
 
 fun! EmptyRegisters()
     let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
     for r in regs
-        call setreg(r, @_)
+        call setreg(r, [])
     endfor
 endfun
 
@@ -221,6 +242,14 @@ require "nvim-treesitter.configs".setup {
         },
     updatetime = 25 -- Debounced time for highlighting nodes in the playground from source code
     }
+  playground = {
+    enable = true,
+    disable = {},
+    keymaps = {
+      open = 'gtd' -- Opens the playground for current buffer (if applicable)
+    },
+    updatetime = 25 -- Debounced time for highlighting nodes in the playground from source code
+  }
 }
 
 EOF

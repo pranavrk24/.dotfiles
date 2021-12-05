@@ -69,4 +69,4 @@ get_session(){
 }
 
 exec $(get_session "$1")
-# exec dwm
+exec dwm
