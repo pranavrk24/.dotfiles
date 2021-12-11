@@ -84,6 +84,9 @@ Plug 'nvim-treesitter/playground'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
+" Github Copilot
+Plug 'github/copilot.vim'
+
 call plug#end()
 
 lua require('radar')
