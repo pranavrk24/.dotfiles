@@ -8,7 +8,16 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 # Colorize ls output
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
+# alias la='ls -a'
+# alias ll='ls -l'
+# alias lla='ls -la'
+
+# exa instead of ls
+alias ls='exa --color=always --grid --icons --group-directories-first'
+alias la='exa -a --color=always --grid --icons --group-directories-first'
+alias ll='exa -l --header --color=always --grid --icons --group-directories-first'
+alias lla='exa -la --header --color=always --grid --icons --group-directories-first'
 
 # confirm before overwriting something
 alias cp="cp -i"
@@ -17,8 +26,6 @@ alias rm='rm -i'
 
 # to show unicode characters in tmux sessions
 alias tmux='tmux -u'
-
-alias ls='ls --color=auto'
 
 # easier to read disk
 alias df='df -h'                          # human-readable sizes
