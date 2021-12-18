@@ -39,7 +39,4 @@ M.project_files = function()
     if not ok then require('telescope.builtin').find_files(opts) end
 end
 
--- vim.api.nvim_set_keymap('n', '<Leader>ff', ':lua require\'radar.telescope\'.project_files()<Cr>', {noremap = true, silent = true})
--- vim.api.nvim_set_keymap('n', '<Leader>df', ':lua require\'radar.telescope\'.search_dotfiles()<Cr>', {noremap = true, silent = true})
-
 return M

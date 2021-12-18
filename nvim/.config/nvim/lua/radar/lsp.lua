@@ -30,6 +30,7 @@ for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach
     }
+end
 
 -- Autocompletion
 
@@ -80,4 +81,3 @@ cmp.setup {
         { name = 'luasnip' },
     },
 }
-end
