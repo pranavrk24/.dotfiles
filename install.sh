@@ -37,7 +37,7 @@ stow x
 stow zsh
 
 # use zsh as default shell
-sudo chsh -s $(which zsh) $USER
+sudo chsh -s $(which zsh)
 
 # TODO: install neovim from source
 
