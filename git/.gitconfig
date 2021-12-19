@@ -1,0 +1,35 @@
+[user]
+	name = Pranav RK
+	email = pranav.r@rently.com
+[core]
+	editor = nvim
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	autocrlf = input
+[merge]
+	tool = vimdiff
+[credential]
+	helper = store
+[help]
+	autocorrect = 20
+[alias]
+	st = status
+	ci = commit
+    cm = commit -m
+    ca = commit --amend
+    br = branch
+	co = checkout
+	ssb = status -sb
+	d = diff
+	dt = difftool
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = true
+[pull]
+	rebase = true
+[fetch]
+	prune = true

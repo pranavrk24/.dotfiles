@@ -19,6 +19,9 @@ alias la='exa -a --color=always --grid --icons --group-directories-first'
 alias ll='exa -l --header --color=always --grid --icons --group-directories-first'
 alias lla='exa -la --header --color=always --grid --icons --group-directories-first'
 
+# bat instead of cat
+alias cat='bat'
+
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'

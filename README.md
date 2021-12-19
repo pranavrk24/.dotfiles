@@ -7,6 +7,9 @@ All my dotfiles managed by [stow](https://www.gnu.org/software/stow/).
 * [Arch](https://archlinux.org/)
 * [Manjaro](https://manjaro.org/)
 
+## External package manager
+* [Nix](https://nixos.org/)
+
 ## Terminal
 * [Alacritty](https://github.com/alacritty/alacritty)
 
