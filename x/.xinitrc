@@ -11,10 +11,6 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 SESSION=${1:-xfce-session}
 
-feh --bg-max --randomize ~/Pictures/wallpapers/* &
-
-slstatus &
-
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
@@ -69,4 +65,3 @@ get_session(){
 }
 
 exec $(get_session "$1")
-exec dwm
