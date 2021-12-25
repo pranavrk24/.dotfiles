@@ -8,4 +8,5 @@ export MANWIDTH=999
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$HOME/.npm-packages/bin:$PATH"
 export CLANGD_PATH=$HOME
