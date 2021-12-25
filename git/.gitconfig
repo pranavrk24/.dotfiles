@@ -13,6 +13,9 @@
 	tool = vimdiff
 [credential]
 	helper = store
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager-core
+	credentialStore = secretservice
 [help]
 	autocorrect = 20
 [alias]
@@ -33,3 +36,5 @@
 	rebase = true
 [fetch]
 	prune = true
+[credential "https://dev.azure.com"]
+	useHttpPath = true
