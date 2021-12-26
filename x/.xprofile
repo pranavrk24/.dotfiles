@@ -8,9 +8,6 @@ xset r rate 210 40
 # Environment variables set everywhere
 export EDITOR="nvim"
 
-# GO path
-export PATH=$PATH:/usr/local/go/bin
-
 # zsh config dir
 export ZDOTDIR=$HOME/.config/zsh
 
