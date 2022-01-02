@@ -84,7 +84,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 10
+  size: 9
 
   offset:
     x: 0
@@ -93,7 +93,7 @@ font:
     x: 0
     y: 0
 
-# background_opacity: 0.80
+background_opacity: 0.80
 
 window:
   # opacity: 0.80
