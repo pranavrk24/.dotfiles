@@ -1,6 +1,6 @@
-# env:
+env:
   # TERM variable
-  # TERM: xterm
+  TERM: alacritty
 
 # Window title
 title: Alacritty

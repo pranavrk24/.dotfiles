@@ -6,6 +6,8 @@ blueman-manager &
 picom -b --experimental-backends &
 flameshot &
 polybar example &
+dunst &
+xfce4-clipman &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 

@@ -37,9 +37,9 @@ font-0 = Hack Nerd Font:pixelsize=10;1
 font-1 = Hack Nerd Font:fontformat=truetype:size=8:antialias=false;0
 font-2 = Hack Nerd Font:pixelsize=10;1
 
-modules-left = bspwm i3 xwindow
+modules-left = bspwm xwindow
 modules-center = 
-modules-right = memory wlan eth battery temperature date backlight pulseaudio powermenu
+modules-right = wlan eth battery date backlight pulseaudio powermenu
 
 tray-position = right
 tray-padding = 2
