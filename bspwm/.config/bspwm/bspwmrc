@@ -8,6 +8,7 @@ flameshot &
 polybar example &
 dunst &
 xfce4-clipman &
+feh --bg-fill --randomize ~/Pictures/wallpapers/*
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
