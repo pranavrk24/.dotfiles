@@ -93,10 +93,10 @@ font:
     x: 0
     y: 0
 
-background_opacity: 0.80
+# background_opacity: 0.80
 
 window:
-  # opacity: 0.80
+  opacity: 0.80
   dynamic_title: false
   padding:
     x: 2

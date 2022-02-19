@@ -1,7 +1,7 @@
 -- LSP
 
 local nvim_lsp = require('lspconfig')
-local servers = { 'tsserver', 'clangd', 'pyright', 'bashls', 'gopls', 'solargraph' }
+local servers = { 'tsserver', 'clangd', 'pyright', 'bashls', 'gopls', 'vimls', 'solargraph' }
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -13,8 +13,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', '<C-p>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', '<C-n>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', '<leader>dp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', '<leader>dn', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -48,7 +48,7 @@ cmp.setup {
 	},
 	mapping = {
         -- Use Tab and shift-Tab to navigate autocomplete menu
-        ['<Tab>'] = function(fallback)
+        ['C-n'] = function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
             elseif luasnip.expand_or_jumpable() then
@@ -57,7 +57,7 @@ cmp.setup {
               fallback()
             end
           end,
-        ['<S-Tab>'] = function(fallback)
+        ['C-p'] = function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
@@ -79,5 +79,6 @@ cmp.setup {
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'buffer' },
     },
 }

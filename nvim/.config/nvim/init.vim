@@ -83,6 +83,7 @@ Plug 'nvim-treesitter/playground'
 
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/bufferline.nvim'
 
 " Github Copilot
 Plug 'github/copilot.vim'
@@ -195,17 +196,3 @@ augroup END
 
 lua require'colorizer'.setup()
 
-lua << EOF
-
-require "nvim-treesitter.configs".setup {
-  playground = {
-    enable = true,
-    disable = {},
-    keymaps = {
-      open = 'gtd' -- Opens the playground for current buffer (if applicable)
-    },
-    updatetime = 25 -- Debounced time for highlighting nodes in the playground from source code
-  }
-}
-
-EOF
