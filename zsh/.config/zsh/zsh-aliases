@@ -1,6 +1,7 @@
 #!/bin/sh
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 alias nvimrc='nvim ~/.config/nvim/'
+alias reload='source ~/.config/zsh/.zshrc'
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -35,4 +36,5 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 
 alias m="git checkout master"
+alias mm="git checkout main"
 
