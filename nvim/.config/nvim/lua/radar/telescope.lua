@@ -1,42 +1,57 @@
-local telescope = require('telescope')
-local actions = require('telescope.actions')
+local status_ok, telescope = pcall(require, "telescope")
+if not status_ok then
+  return
+end
+
+local actions = require "telescope.actions"
+local builtin = require "telescope.builtin"
 
 telescope.setup {
-    defaults = {
-        prompt_prefix = "$ ",
-        color_devicons = true,
-        file_ignore_patterns = { "^.git/" },
-        mappings = {
-            i = {
-                ['esc'] = actions.close
-            }
-        }
+  defaults = {
+
+    prompt_prefix = " ",
+    selection_caret = " ",
+    path_display = { "smart" },
+    file_ignore_patterns = { ".git/", "node_modules" },
+
+    mappings = {
+      i = {
+        ["<Esc>"] = actions.close,
+        ["<Down>"] = actions.cycle_history_next,
+        ["<Up>"] = actions.cycle_history_prev,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+
+        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+      },
     },
-    extensions = {
-        fzf = {
-            fuzzy = true,                    -- false will only do exact matching
-            override_generic_sorter = false, -- override the generic sorter
-            override_file_sorter = true,     -- override the file sorter
-            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
-        }
-    }
+  },
 }
 
 local M = {}
 
 M.search_dotfiles = function()
-    require('telescope.builtin').find_files({
-        prompt_title = "<.dotfiles>",
-        cwd = '~/.dotfiles',
-        hidden = true
-    })
+  builtin.find_files({
+    prompt_title = "< VimRC >",
+    cwd = '$HOME/.dotfiles/',
+    hidden = true,
+  })
 end
 
 M.project_files = function()
-    local opts = {}
-    local ok = pcall(require('telescope.builtin').git_files, opts)
-    if not ok then require('telescope.builtin').find_files(opts) end
+  local opts = {} -- define here if you want to define something
+  local ok = pcall(builtin.git_files, opts)
+  if not ok then builtin.find_files(opts) end
+end
+
+M.git_branches = function()
+  builtin.git_branches({
+    attach_mappings = function(_, map)
+      map("i", "<c-d>", actions.git_delete_branch)
+      map("n", "<c-d>", actions.git_delete_branch)
+      return true
+    end,
+  })
 end
 
 return M
