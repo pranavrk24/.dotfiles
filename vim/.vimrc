@@ -25,6 +25,7 @@ set incsearch
 set scrolloff=8
 set tags=./tags;/
 set diffopt+=vertical
+set mouse=a
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -43,9 +44,6 @@ call plug#begin('~/.vim/plugged')
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" CoC - vscode like vim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'gruvbox-community/gruvbox'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-commentary'
@@ -53,7 +51,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
-Plug '9mm/vim-closer'
 Plug 'vimwiki/vimwiki'
 
 " Highlighted yank
@@ -82,6 +79,8 @@ let g:netrw_winsize = 25
 " let g:netrw_localrmdir = 'rm -r'
 
 let mapleader = " "
+
+inoremap jk <ESC>
 
 " Disable arrow keys
 nnoremap <Up> <Nop>
