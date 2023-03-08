@@ -58,7 +58,7 @@ return packer.startup(function(use)
   use("folke/tokyonight.nvim")
 
   -- Toggleterm
-  use "akinsho/toggleterm.nvim"
+  --[[ use "akinsho/toggleterm.nvim" ]]
 
   -- Gitsigns
   use "lewis6991/gitsigns.nvim"
@@ -80,7 +80,9 @@ return packer.startup(function(use)
 
   -- LSP
   use "neovim/nvim-lspconfig" -- native neovim LSP
-  use "williamboman/nvim-lsp-installer" -- simple language server installer
+  --[[ use "williamboman/nvim-lsp-installer" -- simple language server installer ]]
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- formatting and linting
   use "simrat39/rust-tools.nvim" -- extra rust tools
 
@@ -104,6 +106,9 @@ return packer.startup(function(use)
   -- use "leoluz/nvim-dap-go"
 
   use "JoosepAlviste/nvim-ts-context-commentstring"
+
+  -- Personal Wiki
+  use "vimwiki/vimwiki"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
