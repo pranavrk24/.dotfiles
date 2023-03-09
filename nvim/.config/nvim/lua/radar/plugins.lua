@@ -80,7 +80,8 @@ return packer.startup(function(use)
 
   -- LSP
   use "neovim/nvim-lspconfig" -- native neovim LSP
-  use "williamboman/nvim-lsp-installer" -- simple language server installer
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- formatting and linting
   use "simrat39/rust-tools.nvim" -- extra rust tools
 
