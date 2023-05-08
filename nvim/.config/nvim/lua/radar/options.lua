@@ -7,7 +7,7 @@ vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
 vim.opt.mouse = 'a'
 vim.opt.cursorline = true                       -- highlights the current line
-vim.opt.hlsearch = true                         -- highlight all matches on previous search pattern
+vim.opt.hlsearch = false                         -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true                       -- ignore case in search patterns
 vim.opt.pumheight = 10                          -- pop up menu height
 vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
@@ -35,9 +35,11 @@ vim.opt.wrap = false                            -- display lines as one long lin
 vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', extends = '›', precedes = '‹', nbsp = '␣', trail = '·', eol = '↵' }
+vim.opt.listchars = { tab = '» ', extends = '›', precedes = '‹', nbsp = '␣', trail = '·', eol = '↲' }
 vim.opt.shortmess:append "c"
 vim.opt.colorcolumn = { "80", "120" }
+vim.opt.spelllang = "en_us"
+vim.opt.spell = false
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 
