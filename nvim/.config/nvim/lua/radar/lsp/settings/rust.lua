@@ -72,6 +72,9 @@ return {
 
     settings = {
       ["rust-analyzer"] = {
+        cargo = {
+          allFeatures = true,
+        },
         lens = {
           enable = true,
         },
