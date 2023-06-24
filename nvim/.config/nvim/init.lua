@@ -14,6 +14,7 @@ require "radar.comment"
 require "radar.autopairs"
 require "radar.dap"
 require "radar.neogit"
+require "radar.toggleterm"
 --[[ require "radar.nvim-tree" ]]
 
 local augroup = vim.api.nvim_create_augroup

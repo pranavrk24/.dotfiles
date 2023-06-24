@@ -134,6 +134,10 @@ keymap("n", "<leader>u", ":UndotreeToggle<cr>", opts)
 -- Format
 keymap("n", "ff", ":Format<cr>", opts)
 
+-- Toggleterm
+keymap("n", "<A-t>", "<cmd>ToggleTerm<cr>", opts)
+keymap("n", "<A-g>", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", opts)
+
 -- Jumplist mutations
 -- nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 -- nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'

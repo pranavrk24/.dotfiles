@@ -45,7 +45,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used in lots of plugins
   use "kyazdani42/nvim-web-devicons"
-  use { "akinsho/bufferline.nvim", tag = "v2.*" }
+  use { "akinsho/bufferline.nvim", tag = "*" }
   use "nvim-lualine/lualine.nvim"
   use "numToStr/Comment.nvim" -- Comments
   use "windwp/nvim-autopairs" -- Autopairs integrated with treesitter
@@ -58,7 +58,7 @@ return packer.startup(function(use)
   use("folke/tokyonight.nvim")
 
   -- Toggleterm
-  --[[ use "akinsho/toggleterm.nvim" ]]
+  use "akinsho/toggleterm.nvim"
 
   -- Gitsigns
   use "lewis6991/gitsigns.nvim"
