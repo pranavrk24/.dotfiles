@@ -1,0 +1,65 @@
+return {
+  { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "windwp/nvim-ts-autotag",
+    },
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "astro",
+          "bash",
+          "c",
+          "c_sharp",
+          "cpp",
+          "css",
+          "dockerfile",
+          "go",
+          "graphql",
+          "haskell",
+          "html",
+          "javascript",
+          "json",
+          "llvm",
+          "lua",
+          "nix",
+          "ocaml",
+          "ocaml_interface",
+          "python",
+          "ruby",
+          "rust",
+          "sql",
+          "svelte",
+          "templ",
+          "toml",
+          "tsx",
+          "typescript",
+          "yaml",
+          "zig",
+        },
+        highlight = { enable = true, additional_vim_regex_highlighting = true },
+        indent = { enable = true },
+        autotag = { enable = true },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<C-a>",
+            node_incremental = "<C-a>",
+            scope_incremental = false,
+            node_decremental = "<bs>",
+          },
+        },
+        query_linter = {
+          enable = true,
+          use_virtual_text = true,
+          lint_events = { "BufWrite", "CursorHold" },
+        },
+      })
+    end,
+  },
+}

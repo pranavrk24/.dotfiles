@@ -1,6 +1,0 @@
-require('radar.telescope')
-require('radar.gitsigns')
-require('radar.lsp')
-require('radar.lualine')
-require('radar.bufferline')
-require('radar.treesitter')
