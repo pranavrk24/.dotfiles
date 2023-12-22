@@ -35,6 +35,7 @@ alias tmux='tmux -u'
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 
+alias g="git"
 alias m="git checkout master"
 alias mm="git checkout main"
 
