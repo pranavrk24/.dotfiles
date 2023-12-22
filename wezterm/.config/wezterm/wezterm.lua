@@ -20,6 +20,7 @@ config.use_fancy_tab_bar = false
 
 config.tab_bar_at_bottom = true
 
+config.window_background_opacity = 0.9
 --[[ config.window_background_image = '/home/rently/Pictures/wallpapers/zen.png' ]]
 --[[ config.window_background_image_hsb = { ]]
 --[[   -- Darken the background image by reducing it to 1/3rd ]]
@@ -48,49 +49,49 @@ end)
 
 --[[ config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 } ]]
 -- config.keys = {
-	-- Resize panes
-	--[[ { ]]
-	--[[   key = 'r', ]]
-	--[[   mods = 'LEADER', ]]
-	--[[   action = act.ActivateKeyTable { ]]
-	--[[     name = 'resize_pane', ]]
-	--[[     one_shot = false, ]]
-	--[[   }, ]]
-	--[[ }, ]]
-	--[[]]
-	--[[ -- Activate panes ]]
-	--[[ { ]]
-	--[[   key = "h", ]]
-	--[[   mods = "LEADER", ]]
-	--[[   action = act.ActivatePaneDirection "Left", ]]
-	--[[ }, ]]
-	--[[ { ]]
-	--[[   key = "k", ]]
-	--[[   mods = "LEADER", ]]
-	--[[   action = act.ActivatePaneDirection "Up", ]]
-	--[[ }, ]]
-	--[[ { ]]
-	--[[   key = "j", ]]
-	--[[   mods = "LEADER", ]]
-	--[[   action = act.ActivatePaneDirection "Down", ]]
-	--[[ }, ]]
-	--[[ { ]]
-	--[[   key = "l", ]]
-	--[[   mods = "LEADER", ]]
-	--[[   action = act.ActivatePaneDirection "Right", ]]
-	--[[ }, ]]
-	--[[]]
-	-- Split panes
-	-- {
-	--	key = '"',
-	--	mods = "LEADER|SHIFT",
-	--	action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
-	-- },
-	-- {
-	--	key = "%",
-	--	mods = "LEADER|SHIFT",
-	--	action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-	-- },
+-- Resize panes
+--[[ { ]]
+--[[   key = 'r', ]]
+--[[   mods = 'LEADER', ]]
+--[[   action = act.ActivateKeyTable { ]]
+--[[     name = 'resize_pane', ]]
+--[[     one_shot = false, ]]
+--[[   }, ]]
+--[[ }, ]]
+--[[]]
+--[[ -- Activate panes ]]
+--[[ { ]]
+--[[   key = "h", ]]
+--[[   mods = "LEADER", ]]
+--[[   action = act.ActivatePaneDirection "Left", ]]
+--[[ }, ]]
+--[[ { ]]
+--[[   key = "k", ]]
+--[[   mods = "LEADER", ]]
+--[[   action = act.ActivatePaneDirection "Up", ]]
+--[[ }, ]]
+--[[ { ]]
+--[[   key = "j", ]]
+--[[   mods = "LEADER", ]]
+--[[   action = act.ActivatePaneDirection "Down", ]]
+--[[ }, ]]
+--[[ { ]]
+--[[   key = "l", ]]
+--[[   mods = "LEADER", ]]
+--[[   action = act.ActivatePaneDirection "Right", ]]
+--[[ }, ]]
+--[[]]
+-- Split panes
+-- {
+--	key = '"',
+--	mods = "LEADER|SHIFT",
+--	action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
+-- },
+-- {
+--	key = "%",
+--	mods = "LEADER|SHIFT",
+--	action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+-- },
 -- }
 
 -- https://wezfurlong.org/wezterm/config/key-tables.html

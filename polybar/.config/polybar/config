@@ -33,13 +33,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Hack Nerd Font:pixelsize=10;1
-font-1 = Hack Nerd Font:fontformat=truetype:size=8:antialias=false;0
-font-2 = Hack Nerd Font:pixelsize=10;1
+font-0 = IosevkaTerm Nerd Font:pixelsize=10;1
+font-1 = IosevkaTerm Nerd Font:fontformat=truetype:size=8:antialias=false;0
+font-2 = IosevkaTerm Nerd Font:pixelsize=10;1
 
 modules-left = bspwm xwindow
-modules-center = 
-modules-right = wlan eth battery date backlight pulseaudio powermenu
+modules-center = date
+modules-right = wlan eth battery backlight pulseaudio powermenu
 
 tray-position = right
 tray-padding = 2
@@ -194,7 +194,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "%a %d-%m-%Y"
+date = "%a %b %d"
 time = %I:%M %p
 
 format-prefix = " "

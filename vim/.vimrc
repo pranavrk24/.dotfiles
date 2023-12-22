@@ -39,32 +39,32 @@ set list
 set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
 
 " Plugins
-call plug#begin('~/.vim/plugged')
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-Plug 'gruvbox-community/gruvbox'
-Plug 'mbbill/undotree'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-endwise'
-Plug 'vimwiki/vimwiki'
-
-" Highlighted yank
-Plug 'machakann/vim-highlightedyank'
-
-" Markdown files editing
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-
-call plug#end()
-
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark='hard'
-
+" call plug#begin('~/.vim/plugged')
+" 
+" " Plugin outside ~/.vim/plugged with post-update hook
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" 
+" Plug 'gruvbox-community/gruvbox'
+" Plug 'mbbill/undotree'
+" Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-endwise'
+" Plug 'vimwiki/vimwiki'
+" 
+" " Highlighted yank
+" Plug 'machakann/vim-highlightedyank'
+" 
+" " Markdown files editing
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" 
+" call plug#end()
+" 
+" colorscheme gruvbox
+" set background=dark
+" let g:gruvbox_contrast_dark='hard'
+" 
 let g:highlightedyank_highlight_duration=150
 
 set colorcolumn=80,120
