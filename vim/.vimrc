@@ -1,5 +1,5 @@
 set encoding=utf-8
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 
 syntax on
 
@@ -21,7 +21,7 @@ set showtabline=2
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-" set termguicolors
+set termguicolors
 set scrolloff=8
 set tags=./tags;/
 set diffopt+=vertical
@@ -39,32 +39,29 @@ set list
 set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:␣,eol:¬
 
 " Plugins
-" call plug#begin('~/.vim/plugged')
-" 
-" " Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" 
-" Plug 'gruvbox-community/gruvbox'
-" Plug 'mbbill/undotree'
-" Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-rails'
-" Plug 'tpope/vim-endwise'
-" Plug 'vimwiki/vimwiki'
-" 
-" " Highlighted yank
-" Plug 'machakann/vim-highlightedyank'
-" 
-" " Markdown files editing
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-" 
-" call plug#end()
-" 
-" colorscheme gruvbox
-" set background=dark
-" let g:gruvbox_contrast_dark='hard'
-" 
+call plug#begin('~/.vim/plugged')
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+Plug 'gruvbox-community/gruvbox'
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+Plug 'vimwiki/vimwiki'
+
+" Highlighted yank
+Plug 'machakann/vim-highlightedyank'
+
+call plug#end()
+
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark='hard'
+
 let g:highlightedyank_highlight_duration=150
 
 set colorcolumn=80,120
@@ -88,11 +85,6 @@ nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 
-" Tab navigation
-nnoremap th :tabprev<cr>
-nnoremap tl :tabnext<cr>
-nnoremap tn :tabnew<cr>
-
 nnoremap <leader>ff :FZF<cr>
 
 nnoremap <leader>u :UndotreeShow<CR>
@@ -107,12 +99,7 @@ xnoremap <leader>p "_dP
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
-" Vim movement between windows
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>e :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
 " Keep the cursor centered
 nnoremap n nzzzv
@@ -129,13 +116,10 @@ inoremap ? ?<c-g>u
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-" Moving text
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-j> :m .+1<CR>==
-inoremap <C-k> :m .-2<CR>==
-nnoremap <leader>j :m .+1<CR>==
-nnoremap <leader>k :m .-2<CR>==
-
-nnoremap <leader><CR> :source $MYVIMRC<CR>
-
+" Move text up and down
+nnoremap <A-j> <cmd>m .+1<cr>==
+nnoremap <A-k> <cmd>m .-2<cr>==
+inoremap <A-j> <esc><cmd>m .+1<cr>==gi
+inoremap <A-k> <esc><cmd>m .-2<cr>==gi
+vnoremap <A-j> :m '>+1<cr>gv=gv
+vnoremap <A-k> :m '<-2<cr>gv=gv
