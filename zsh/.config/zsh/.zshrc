@@ -2,9 +2,31 @@ source $ZDOTDIR/zshrc
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# To load rbenv automatically
-# eval "$(rbenv init -)"
-#
-# Loading NVM
-# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# bun completions
+# [ -s "/home/radar/.bun/_bun" ] && source "/home/radar/.bun/_bun"
+
+# asdf completions
+. "$HOME/.asdf/asdf.sh"
+
+# [ -f "/home/radar/.ghcup/env" ] && source "/home/radar/.ghcup/env" # ghcup-env
+
+# opam configuration
+# bash -c "sh <(curl -fsSL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)"
+
+# starship prompt
+eval "$(starship init zsh)"
+
+# zoxide directory jumping
+eval "$(zoxide init zsh)"
+
+# pnpm
+# export PNPM_HOME="/home/radar/.local/share/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
+# pnpm end
+
+
+GPG_TTY=$(tty)
+export GPG_TTY
