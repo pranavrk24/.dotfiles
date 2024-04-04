@@ -3,65 +3,56 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    "simrat39/rust-tools.nvim",
+  },
+  opts = {
+    diagnostics = {
+      underline = true,
+      update_in_insert = false,
+      virtual_text = {
+        spacing = 4,
+        source = "if_many",
+        prefix = "icons",
+      },
+      severity_sort = true,
+    },
   },
   config = function()
     local lspconfig = require("lspconfig")
+    -- local util = require("lspconfig.util")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
-    local opts = { noremap = true, silent = true }
+
     local on_attach = function(_, bufnr)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "<A-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-      -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(
-        bufnr,
-        "n",
-        "dp",
-        '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
-        opts
-      )
-      vim.api.nvim_buf_set_keymap(
-        bufnr,
-        "n",
-        "dn",
-        '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
-        opts
-      )
-      vim.api.nvim_buf_set_keymap(
-        bufnr,
-        "n",
-        "<leader>e",
-        "<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<CR>",
-        opts
-      )
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder<CR>", opts)
-      vim.api.nvim_buf_set_keymap(
-        bufnr,
-        "n",
-        "<leader>wl",
-        "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders))<CR>",
-        opts
-      )
-      -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader><leader>a", "<cmd>lua require'rust-tools'.hover_actions.hover_actions()<CR>", opts)
+      -- stylua: ignore start
+      vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { buffer = bufnr, desc = "Goto Declaration" })
+      vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { buffer = bufnr, desc = "Goto Definition" })
+      vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = bufnr, desc = "Hover" })
+      vim.keymap.set( "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { buffer = bufnr, desc = "Goto implementation" })
+      vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { buffer = bufnr, desc = "References" })
+      vim.keymap.set( "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { buffer = bufnr, desc = "Signature help" })
+      vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { buffer = bufnr, desc = "Rename" })
+      vim.keymap.set( "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { buffer = bufnr, desc = "Code action" })
+      vim.keymap.set( "n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { buffer = bufnr, desc = "Type Definition" })
+      vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { buffer = bufnr, desc = "Prev Diagnostic" })
+      vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { buffer = bufnr, desc = "Next Diagnostic" })
+      vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", { buffer = bufnr, desc = "Set loclist" })
+      vim.keymap.set( "n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder<CR>", { buffer = bufnr, desc = "Add workspace folder" })
+      vim.keymap.set( "n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder<CR>", { buffer = bufnr, desc = "Remove workspace folder" })
+      vim.keymap.set( "n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders))<CR>", { buffer = bufnr, desc = "List workspace folders" })
+      -- stylua: ignore end
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     -- Change the Diagnostic symbols in the sign column (gutter)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    local signs = {
+      DiagnosticSignError = " ",
+      DiagnosticSignWarn = " ",
+      DiagnosticSignHint = " ",
+      DiagnosticSignInfo = " ",
+    }
     for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      vim.fn.sign_define(type, { text = icon, texthl = type, numhl = "" })
     end
 
     -- html server
@@ -74,6 +65,20 @@ return {
     lspconfig["tsserver"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+    })
+
+    -- astro language server
+    lspconfig["astro"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- svelte language server
+    lspconfig["svelte"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      cmd = { "svelteserver", "--stdio" },
+      filetypes = { "svelte" },
     })
 
     -- css server
@@ -107,6 +112,11 @@ return {
     })
 
     -- ruby server
+    -- lspconfig["ruby_ls"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
+
     lspconfig["solargraph"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
@@ -119,6 +129,7 @@ return {
       settings = { -- custom settings for lua
         Lua = {
           -- make the language server recognize "vim" global
+          hint = true,
           diagnostics = {
             globals = { "vim" },
           },
@@ -151,100 +162,29 @@ return {
     })
 
     -- rust analyzer
-    -- lspconfig["rust_analyzer"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    --   cmd = { os.getenv("HOME") .. "/.local/bin/rust-analyzer" },
-    --   settings = {
-    --     ["rust-analyzer"] = {
-    --       diagnostics = {
-    --         enable = true,
-    --       },
-    --       lens = {
-    --         enable = true,
-    --       },
-    --       checkOnSave = {
-    --         command = "clippy",
-    --       },
-    --     },
-    --   },
-    -- })
-    require("rust-tools").setup({
-      server = {
-        on_attach = on_attach,
-        cmd = { os.getenv("HOME") .. "/.local/bin/rust-analyzer" },
-        settings = {
-          ["rust-analyzer"] = {
-            diagnostics = {
-              enable = true,
-            },
-            lens = {
-              enable = true,
-            },
-            checkOnSave = {
-              command = "clippy",
-            },
+    lspconfig["rust_analyzer"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      cmd = { "rustup", "run", "stable", "rust-analyzer" },
+      settings = {
+        ["rust-analyzer"] = {
+          diagnostics = {
+            enable = true,
+          },
+          lens = {
+            enable = true,
+          },
+          checkOnSave = {
+            command = "clippy",
           },
         },
       },
-      tools = {
-        on_initialized = function()
-          vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
-            pattern = { "*.rs" },
-            callback = function()
-              vim.lsp.codelens.refresh()
-            end,
-          })
-        end,
-        inlay_hints = {
-          -- Only show inlay hints for the current line
-          only_current_line = false,
+    })
 
-          -- Event which triggers a refersh of the inlay hints.
-          -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
-          -- not that this may cause higher CPU usage.
-          -- This option is only respected when only_current_line and
-          -- autoSetHints both are true.
-          only_current_line_autocmd = "CursorHold",
-
-          -- whether to show parameter hints with the inlay hints or not
-          -- default: true
-          show_parameter_hints = false,
-
-          -- whether to show variable name before type hints with the inlay hints or not
-          -- default: false
-          show_variable_name = false,
-
-          -- prefix for parameter hints
-          -- default: "<-"
-          parameter_hints_prefix = "  ",
-
-          -- prefix for all the other hints (type, chaining)
-          -- default: "=>"
-          other_hints_prefix = "  ",
-
-          -- whether to align to the lenght of the longest line in the file
-          max_len_align = false,
-
-          -- padding from the left if max_len_align is true
-          max_len_align_padding = 1,
-
-          -- whether to align to the extreme right or not
-          right_align = false,
-
-          -- padding from the right if right_align is true
-          right_align_padding = 7,
-
-          -- The color of the hints
-          highlight = "Comment",
-        },
-        hover_actions = {
-          auto_focus = false,
-          border = "rounded",
-          width = 60,
-          height = 30,
-        },
-      },
+    -- erlang
+    lspconfig["erlangls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
   end,
 }

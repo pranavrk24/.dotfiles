@@ -24,6 +24,7 @@ return {
     mason_lspconfig.setup({
       ensure_installed = {
         "clangd",
+        "templ",
         "lua_ls",
         "cssls",
         "html",
@@ -33,9 +34,8 @@ return {
         "jsonls",
         "gopls",
         "rust_analyzer",
-        "solargraph",
+        "ruby_ls",
         "tailwindcss",
-        "dockerls",
       },
       automatic_installation = true, -- not the same as ensure_installed
     })
@@ -45,6 +45,9 @@ return {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "eslint_d", -- js linter
+        "isort",
+        "black",
+        "pylint",
       },
     })
   end,

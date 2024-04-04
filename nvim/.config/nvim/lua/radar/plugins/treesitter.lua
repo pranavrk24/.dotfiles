@@ -1,6 +1,4 @@
 return {
-  { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
-
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -15,7 +13,6 @@ return {
           "astro",
           "bash",
           "c",
-          "c_sharp",
           "cpp",
           "css",
           "dockerfile",
@@ -48,8 +45,8 @@ return {
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = "<C-a>",
-            node_incremental = "<C-a>",
+            init_selection = "<C-s>",
+            node_incremental = "<C-s>",
             scope_incremental = false,
             node_decremental = "<bs>",
           },
@@ -59,7 +56,22 @@ return {
           use_virtual_text = true,
           lint_events = { "BufWrite", "CursorHold" },
         },
+        vim.filetype.add({
+          extension = {
+            mdx = "mdx",
+          },
+        }),
+        vim.treesitter.language.register("markdown", "mdx"),
       })
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = { "BufEnter" },
+    enabled = true,
+    opts = { mode = "cursor", max_lines = 3 },
+    config = function()
+      require("treesitter-context").setup({})
     end,
   },
 }
