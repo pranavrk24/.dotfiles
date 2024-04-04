@@ -131,13 +131,3 @@ if [ -e $HOME/.bash_functions ]; then
     source $HOME/.bash_functions
 fi
 
-# setup vi as default editor
-export VISUAL=vim
-export EDITOR="$VISUAL"
-unset DOCKET_HASH
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
