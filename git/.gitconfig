@@ -1,7 +1,7 @@
 [user]
 	name = Pranav RK
 	email = pranavrk7@gmail.com
-	signingkey = D57FD4015C6AAF15
+	signingkey = /home/radar/.ssh/./github-signing.pub
 [core]
 	editor = nvim
 	diff = auto
@@ -50,4 +50,5 @@
   showSignature = false
 [commit]
 	gpgsign = true
-
+[gpg]
+	format = ssh
