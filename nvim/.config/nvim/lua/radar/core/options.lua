@@ -1,3 +1,4 @@
+vim.opt.clipboard = "unnamedplus"
 vim.opt.backup = false -- creates a backup file
 vim.opt.confirm = true -- confirm to save before exiting a modified buffer
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
