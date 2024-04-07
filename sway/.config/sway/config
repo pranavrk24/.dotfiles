@@ -50,6 +50,9 @@ exec always {
   gsettings set org.gnome.desktop.interface cursor-size "24"
 }
 
+exec_always systemctl --user start sway-session.target
+exec_always --no-startup-id nm-applet;
+
 # set wallpaper using waypaper
 exec waypaper --restore
 
@@ -82,8 +85,11 @@ for_window [floating] border none
 #
 # Example configuration:
 
-output HDMI-A-1 resolution 1920x1080 position 1920,0
-# output eDP-1 resolution 1920x1080 position 1920,0
+# HDMI-A-1 'BNQ BenQ GW2780 C7P0392401Q'
+# output HDMI-A-1 resolution 1920x1080 position 1920,0
+
+# eDP-2 'AU Optronics B156HAN15.H  Unknown'
+# output eDP-2 resolution 1920x1080 position 0,0
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -91,10 +97,11 @@ output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # Example configuration:
 #
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000' \
+#          before-sleep 'playerctl pause'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -145,6 +152,9 @@ input "10248:514:ASUF1204:00_2808:0202_Touchpad" {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # Rofi power menu
+    bindsym $mod+Shift+q exec rofi -show power-menu -modi power-menu:~/.config/rofi/rofi-power-menu
 #
 # Moving around:
 #
@@ -162,6 +172,27 @@ input "10248:514:ASUF1204:00_2808:0202_Touchpad" {
 #
 # Workspaces:
 #
+
+    # Multi-monitor setup
+    set $primary "eDP-2"
+    set $secondary "HDMI-A-1"
+
+    # Clamshell mode
+    bindswitch --reload --locked lid:on output $primary disable
+    bindswitch --reload --locked lid:off output $primary enable
+
+    # workspace 1 output $secondary
+    # workspace 2 output $secondary
+    # workspace 3 output $secondary
+    # workspace 4 output $secondary
+    # workspace 5 output $secondary
+    # workspace 6 output $secondary
+    #
+    # workspace 7 output $primary
+    # workspace 8 output $primary
+    # workspace 9 output $primary
+    # workspace 10 output $primary
+    #
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -237,6 +268,8 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+# bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86AudioPlay exec playerctl play-pause
