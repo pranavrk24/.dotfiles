@@ -4,9 +4,9 @@
     "margin-left":5,
     "margin-right":5,
     "spacing": 1,
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "backlight", "battery", "clock", "tray"],
+    "modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "network", "memory", "backlight", "battery", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -39,7 +39,7 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 80,
             "warning": 30,
             "critical": 15
         },
@@ -58,7 +58,7 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
+        "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon}",
         "format-bluetooth-muted": " {icon}",
         "format-muted": " ",
@@ -77,17 +77,18 @@
     },
     "sway/workspaces": {
         "format":" {name} ",
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6":[],
-            "7":[],
-            "8":[],
-            "9": [],
-        }
+        "disable-scroll": true,
+        // "persistent-workspaces": {
+        //     "1": [],
+        //     "2": [],
+        //     "3": [],
+        //     "4": [],
+        //     "5": [],
+        //     "6":[],
+        //     "7":[],
+        //     "8":[],
+        //     "9": [],
+        // }
     }
 }
 

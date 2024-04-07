@@ -6,6 +6,24 @@
 
 default_border none
 
+### Rounded corners
+corner_radius 15
+smart_corner_radius enable
+
+### Blur
+blur enable
+blur_xray off
+blur_passes 2
+blur_radius 2
+
+### Shadows
+shadows on
+shadows_on_csd off
+shadow_blur_radius 10
+shadow_color #2b4f4f
+
+default_dim_inactive 0.2
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -24,6 +42,7 @@ set $web firefox
 # Your preferred browser
 set $file pcmanfm
 
+# gtk themes
 exec always {
   gsettings set org.gnome.desktop.interface gtk-theme "Breeze-Dark"
   gsettings set org.gnome.desktop.interface icon-theme "breeze"
@@ -31,22 +50,30 @@ exec always {
   gsettings set org.gnome.desktop.interface cursor-size "24"
 }
 
+# set wallpaper using waypaper
+exec waypaper --restore
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | rofi -show drun | xargs swaymsg exec --
+set $menu dmenu_path | rofi -show drun -show-icons | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
-gaps inner 2
-
-# set wallpaper using waypaper
-exec waypaper --restore
+gaps inner 3
+gaps outer 3
+smart_gaps off
 
 # window rules
 # for_window [app_id="gnome-calculator"] floating enable
 for_window [app_id="waypaper"] floating enable
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="blueman"] floating enable
+
+
+# borders
+for_window [tiling] border pixel 2
+for_window [floating] border none
 
 ### Output configuration
 #
@@ -64,10 +91,10 @@ output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -77,12 +104,12 @@ output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # Example configuration:
 #
-# input "1739:52839:SYNA8018:00_06CB:CE67_Touchpad" {
-#     dwt enabled
-#     tap enabled
-#     natural_scroll enabled
-#     middle_emulation enabled
-# }
+input "10248:514:ASUF1204:00_2808:0202_Touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
