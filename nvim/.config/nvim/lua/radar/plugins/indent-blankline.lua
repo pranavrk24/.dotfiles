@@ -10,7 +10,6 @@ return {
     exclude = {
       filetypes = {
         "help",
-        "nvim-tree",
         "Trouble",
         "trouble",
         "lazy",
