@@ -133,7 +133,7 @@ font:
     y: 0
 
 window:
-  opacity: 0.9
+  # opacity: 0.9
   dynamic_title: false
   padding:
     x: 2
