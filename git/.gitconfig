@@ -1,7 +1,7 @@
 [user]
 	name = Pranav RK
 	email = pranavrk7@gmail.com
-	signingkey = /home/radar/.ssh/./github-signing.pub
+	signingkey = 679B4720886DA63C
 [core]
 	editor = nvim
 	diff = auto
@@ -20,6 +20,8 @@
 [delta]
   navigate = true # use n and N to move between diff sections
   light = false # set to true for light background
+  side-by-side = true
+  line-numbers = true
 [alias]
 	st = status
 	ci = commit
@@ -50,5 +52,3 @@
   showSignature = false
 [commit]
 	gpgsign = true
-[gpg]
-	format = ssh
