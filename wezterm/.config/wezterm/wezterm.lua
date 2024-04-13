@@ -42,7 +42,7 @@ config.font = wezterm.font_with_fallback({
 -- 	},
 -- }
 
-config.window_background_opacity = 0.85
+-- config.window_background_opacity = 0.95
 
 config.warn_about_missing_glyphs = false
 
