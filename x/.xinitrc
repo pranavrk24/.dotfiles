@@ -64,5 +64,4 @@ get_session(){
 	echo "dbus-launch ${dbus_args[*]}"
 }
 
-# exec $(get_session "$1")
-exec bspwm
+exec $(get_session "$1")
