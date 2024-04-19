@@ -147,31 +147,12 @@ return {
       },
     }
 
-    -- Python
-    dap.adapters.python = {
-      type = "executable",
-      command = os.getenv("HOME") .. "/.virtualenvs/debugpy/bin/python3",
-      args = { "-m", "debugpy.adapter" },
-    }
-
-    dap.configurations.python = {
-      {
-        type = "python",
-        request = "launch",
-        name = "Launch file",
-        program = "${file}",
-        pythonPath = function()
-          return "/usr/bin/python3"
-        end,
-      },
-    }
-
     -- Rust
     dap.adapters.codelldb = {
       type = "server",
       port = "${port}",
       executable = {
-        command = os.getenv("HOME") .. "/Downloads/codelldb/extension/adapter/codelldb",
+        command = os.getenv("HOME") .. "/builds/extension/adapter/codelldb",
         args = { "--port", "${port}" },
       },
     }
@@ -186,6 +167,20 @@ return {
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
+      },
+    }
+
+    dap.configurations.cpp = {
+      {
+        name = "Launch file",
+        type = "codelldb",
+        request = "launch",
+        program = function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+        runInTerminal = true,
       },
     }
   end,
