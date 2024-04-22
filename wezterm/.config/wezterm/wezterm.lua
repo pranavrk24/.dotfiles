@@ -12,17 +12,17 @@ config.color_scheme = "Catppuccin Mocha"
 config.font_size = 14
 config.font = wezterm.font_with_fallback({
 	{ family = "FiraCode Nerd Font", weight = 450 },
-	{ family = "Dank Mono", weight = "Regular" },
-	{ family = "MonoLisaTrial", weight = "Regular" },
 	{ family = "IosevkaTerm Nerd Font", weight = "Regular" },
 	{ family = "JetBrains Mono Nerd Font", weight = "Regular" },
-	{ family = "JuliaMono", weight = "Regular" },
 	{ family = "Monaspace Neon", weight = "Medium" },
 	{ family = "Monaspace Argon", weight = "Regular" },
 	{ family = "Monaspace Krypton", weight = "Regular" },
 	{ family = "Monaspace Xenon", weight = "Regular" },
 	{ family = "Monaspace Radon", weight = "Regular" },
 })
+
+-- FiraCode variants
+config.harfbuzz_features = { "zero", "cv02", "ss02", "ss03", "ss05" }
 
 -- config.font_rules = {
 -- 	{
@@ -42,7 +42,15 @@ config.font = wezterm.font_with_fallback({
 -- 	},
 -- }
 
--- config.window_background_opacity = 0.95
+-- config.window_background_opacity = 0.1
+
+-- config.window_background_image = "/home/radar/Pictures/wallpapers/honkai-star-rail.jpg"
+--
+-- config.window_background_image_hsb = {
+-- 	brightness = 0.05,
+-- 	hue = 1.0,
+-- 	saturation = 1.0,
+-- }
 
 config.warn_about_missing_glyphs = false
 
