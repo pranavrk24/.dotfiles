@@ -83,71 +83,31 @@ color = "#f5e0dc"
 blinking = "Never"
 
 [font]
-size = 12.0
+size = 14.0
 
 [font.bold]
-family = "FiraCode Nerd Font"
+family = "IosevkaTerm Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "FiraCode Nerd Font"
+family = "IosevkaTerm Nerd Font"
 style = "Bold Italic"
 
-[font.glyph_offset]
-x = 0
-y = 0
-
 [font.italic]
-family = "FiraCode Nerd Font"
+family = "IosevkaTerm Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "FiraCode Nerd Font"
-style = "Regular"
+family = "IosevkaTerm Nerd Font"
+style = "Medium"
 
 [font.offset]
 x = 0
 y = 0
 
-# [[keyboard.bindings]]
-# action = "Paste"
-# key = "V"
-# mods = "Control|Shift"
-#
-# [[keyboard.bindings]]
-# action = "Copy"
-# key = "C"
-# mods = "Control|Shift"
-#
-# [[keyboard.bindings]]
-# action = "ResetFontSize"
-# key = "Key0"
-# mods = "Control"
-#
-# [[keyboard.bindings]]
-# action = "IncreaseFontSize"
-# key = "Equals"
-# mods = "Control"
-#
-# [[keyboard.bindings]]
-# action = "IncreaseFontSize"
-# key = "Add"
-# mods = "Control"
-#
-# [[keyboard.bindings]]
-# action = "DecreaseFontSize"
-# key = "Subtract"
-# mods = "Control"
-#
-# [[keyboard.bindings]]
-# action = "DecreaseFontSize"
-# key = "Minus"
-# mods = "Control"
-#
-# [[keyboard.bindings]]
-# action = "SpawnNewInstance"
-# key = "N"
-# mods = "Control"
+[font.glyph_offset]
+x = 0
+y = 0
 
 [scrolling]
 history = 10000
