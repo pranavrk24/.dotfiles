@@ -20,7 +20,6 @@
 [delta]
   navigate = true # use n and N to move between diff sections
   light = false # set to true for light background
-  side-by-side = true
   line-numbers = true
 [alias]
 	st = status
