@@ -14,7 +14,7 @@ return {
     },
     notification = {
       view = {
-        stack_upwards = false,
+        stack_upwards = true,
       },
     },
   },
