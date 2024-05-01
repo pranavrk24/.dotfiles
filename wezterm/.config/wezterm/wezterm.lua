@@ -42,15 +42,7 @@ config.harfbuzz_features = { "zero", "cv02", "ss02", "ss03", "ss05" }
 -- 	},
 -- }
 
--- config.window_background_opacity = 0.1
-
--- config.window_background_image = "/home/radar/Pictures/wallpapers/honkai-star-rail.jpg"
---
--- config.window_background_image_hsb = {
--- 	brightness = 0.05,
--- 	hue = 1.0,
--- 	saturation = 1.0,
--- }
+-- config.window_background_opacity = 0.90
 
 config.warn_about_missing_glyphs = false
 
