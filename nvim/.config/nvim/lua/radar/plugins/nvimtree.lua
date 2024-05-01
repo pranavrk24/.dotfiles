@@ -15,7 +15,7 @@ return {
         ignore_list = {},
       },
       git = {
-        enable = false,
+        enable = true,
       },
       diagnostics = {
         enable = true,
@@ -47,6 +47,9 @@ return {
               symlink = "",
             },
           },
+        },
+        indent_markers = {
+          enable = true,
         },
       },
     })

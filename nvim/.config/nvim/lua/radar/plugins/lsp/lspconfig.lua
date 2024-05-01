@@ -112,15 +112,15 @@ return {
     })
 
     -- ruby server
-    -- lspconfig["ruby_ls"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    -- })
-
-    lspconfig["solargraph"].setup({
+    lspconfig["ruby_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
+
+    -- lspconfig["solargraph"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
 
     -- lua server (with special settings)
     lspconfig["lua_ls"].setup({
