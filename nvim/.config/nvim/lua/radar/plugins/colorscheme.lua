@@ -49,6 +49,13 @@ return {
           treesitter_context = true,
           which_key = true,
         },
+        color_overrides = {
+          mocha = {
+            base = "#000000",
+            mantle = "#000000",
+            crust = "#000000",
+          },
+        },
       })
       -- load the colorscheme here
       vim.cmd.colorscheme("catppuccin")
