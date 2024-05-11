@@ -10,6 +10,9 @@ return {
     local mason_tool_installer = require("mason-tool-installer")
 
     mason.setup({
+      pip = {
+        upgrade_pip = true,
+      },
       ui = {
         icons = {
           package_installed = "✓",
@@ -33,7 +36,7 @@ return {
         "jsonls",
         "gopls",
         "rust_analyzer",
-        "ruby_ls",
+        "ruby_lsp",
         "tailwindcss",
       },
       automatic_installation = true, -- not the same as ensure_installed

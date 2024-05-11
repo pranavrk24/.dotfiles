@@ -1,6 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
-  version = "*",
+  -- version = "*",
   opts = function()
     return {
       options = {
