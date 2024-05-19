@@ -17,5 +17,7 @@ return {
         concealcursor = "nvic",
       },
     })
+
+    vim.keymap.set("n", "<space>-", require("oil").toggle_float)
   end,
 }
