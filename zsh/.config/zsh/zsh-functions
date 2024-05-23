@@ -32,9 +32,9 @@ function zsh_add_completion() {
 
 # C++ build and run aliases
 function co() {
-  g++ -std=c++20 -O2 -o "${1%.*}" $1 -Wall;
+  g++ -std=c++20 -O2 -o "${1%.*}.out" $1 -Wall;
 }
 
 function run() {
-  co $1 && ./${1%.*} & fg;
+  co $1 && ./${1%.*}.out & fg;
 }

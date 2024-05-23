@@ -49,3 +49,5 @@ alias lvim="NVIM_APPNAME=LazyVim nvim"
 
 # use zoxide for directory jumping
 alias cd="z"
+
+alias ff="fastfetch"
