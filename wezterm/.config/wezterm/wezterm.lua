@@ -11,9 +11,12 @@ config.color_scheme = "Catppuccin Mocha"
 
 config.font_size = 14
 config.font = wezterm.font_with_fallback({
-	{ family = "FiraCode Nerd Font", weight = 450 },
-	{ family = "IosevkaTerm Nerd Font", weight = "Regular" },
 	{ family = "JetBrains Mono Nerd Font", weight = "Regular" },
+	{ family = "Iosevka Nerd Font", weight = "Regular" },
+	{ family = "ZedMono Nerd Font", weight = "Regular" },
+	{ family = "Inconsolata Nerd Font", weight = "Regular" },
+	{ family = "Mononoki Nerd Font", weight = "Regular" },
+	{ family = "FiraCode Nerd Font", weight = 450 },
 	{ family = "Monaspace Neon", weight = "Medium" },
 	{ family = "Monaspace Argon", weight = "Regular" },
 	{ family = "Monaspace Krypton", weight = "Regular" },
@@ -21,8 +24,8 @@ config.font = wezterm.font_with_fallback({
 	{ family = "Monaspace Radon", weight = "Regular" },
 })
 
--- FiraCode variants
-config.harfbuzz_features = { "zero", "cv02", "ss02", "ss03", "ss05" }
+-- FiraCode
+-- config.harfbuzz_features = { "zero", "cv02", "ss02", "ss03", "ss05" }
 
 -- config.font_rules = {
 -- 	{
