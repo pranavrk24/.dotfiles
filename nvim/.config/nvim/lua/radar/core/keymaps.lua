@@ -19,8 +19,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Copying to clipboard
--- keymap("n", "<leader>y", '"+y', opts)
--- keymap("v", "<leader>y", '"+y', opts)
+keymap("n", "<leader>y", '"+y', opts)
+keymap("v", "<leader>y", '"+y', opts)
 keymap("n", "<leader>Y", 'gg"+yG', opts)
 
 -- Keep the cursor centered
