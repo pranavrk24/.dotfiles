@@ -177,9 +177,15 @@ return {
     })
 
     -- erlang
-    lspconfig["erlangls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    -- lspconfig["erlangls"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
+
+    -- terraform
+    -- lspconfig["terraformls"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
   end,
 }

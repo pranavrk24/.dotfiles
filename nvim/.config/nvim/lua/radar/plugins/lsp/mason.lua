@@ -26,13 +26,11 @@ return {
 
     mason_lspconfig.setup({
       ensure_installed = {
-        "templ",
         "lua_ls",
         "cssls",
         "html",
         "tsserver",
         "pyright",
-        "bashls",
         "jsonls",
         "gopls",
         "rust_analyzer",

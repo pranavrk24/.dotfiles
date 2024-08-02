@@ -16,6 +16,16 @@ return {
     end,
   },
   {
+    "ellisonleao/gruvbox.nvim",
+    name = "gruvbox",
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup({})
+    end,
+    -- load the colorscheme here
+    -- vim.cmd("colorscheme gruvbox"),
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000, -- make sure to load this before all the other start plugins

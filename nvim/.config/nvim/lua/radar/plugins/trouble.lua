@@ -1,45 +1,36 @@
 return {
   "folke/trouble.nvim",
   lazy = true,
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
+  opts = {},
   keys = {
     {
       "<leader>xx",
-      function()
-        require("trouble").toggle()
-      end,
+      "<cmd>Trouble diagnostics toggle<cr>",
       desc = "Trouble toggle",
     },
     {
-      "<leader>xw",
-      function()
-        require("trouble").toggle("workspace_diagnostics")
-      end,
-      desc = "Workspace diagnostics",
+      "<leader>xX",
+      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      desc = "Buffer Diagnostics (Trouble)",
     },
     {
-      "<leader>xd",
-      function()
-        require("trouble").toggle("document_diagnostics")
-      end,
-      desc = "Document diagnostics",
+      "<leader>cs",
+      "<cmd>Trouble symbols toggle focus=false<cr>",
+      desc = "Symbols (Trouble)",
     },
     {
-      "<leader>xq",
-      function()
-        require("trouble").toggle("quickfix")
-      end,
+      "<leader>cl",
+      "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+      desc = "LSP Definitions / references / ... (Trouble)",
+    },
+    {
+      "<leader>xQ",
+      "<cmd>Trouble qflist toggle<cr>",
       desc = "Trouble quickfix",
     },
     {
-      "<leader>xl",
-      function()
-        require("trouble").toggle("loclist")
-      end,
+      "<leader>xL",
+      "<cmd>Trouble loclist toggle<cr>",
       desc = "Trouble loclist",
     },
     {

@@ -7,7 +7,7 @@ return {
       ignore_empty_message = true,
       display = {
         progress_icon = {
-          pattern = "earth",
+          pattern = "moon",
           period = 1,
         },
       },
