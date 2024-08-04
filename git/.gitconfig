@@ -1,7 +1,7 @@
 [user]
 	name = Pranav RK
 	email = pranavrk7@gmail.com
-	signingkey = 29EF887FA4A8C48B
+	signingkey = 37F03B878831C3FC
 [core]
 	editor = nvim
 	diff = auto
