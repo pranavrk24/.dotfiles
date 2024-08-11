@@ -44,16 +44,12 @@ return {
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    local signs = {
-      DiagnosticSignError = " ",
-      DiagnosticSignWarn = " ",
-      DiagnosticSignHint = " ",
-      DiagnosticSignInfo = " ",
-    }
-    for type, icon in pairs(signs) do
-      vim.fn.sign_define(type, { text = icon, texthl = type, numhl = "" })
-    end
+    local x = vim.diagnostic.severity
+    vim.diagnostic.config({
+      virtual_text = { prefix = "●" },
+      signs = { text = { [x.ERROR] = " ", [x.WARN] = " ", [x.HINT] = " ", [x.INFO] = " " } },
+      underline = true,
+    })
 
     -- html server
     lspconfig["html"].setup({
@@ -112,10 +108,10 @@ return {
     })
 
     -- ruby server
-    lspconfig["ruby_lsp"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    -- lspconfig["ruby_lsp"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
 
     -- lua server (with special settings)
     lspconfig["lua_ls"].setup({
@@ -154,6 +150,12 @@ return {
           staticcheck = true,
         },
       },
+    })
+
+    -- templ
+    lspconfig["templ"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     -- rust analyzer
