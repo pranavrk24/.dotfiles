@@ -1,6 +1,6 @@
 * {
   border: none;
-  font-family: "IosevkaTerm Nerd Font";
+  font-family: "Iosevka Nerd Font";
   font-size: 14px;
   font-weight: bold;
 }
@@ -40,7 +40,7 @@ window#waybar.hidden {
 #workspaces button {
   border-radius: 80px;
   padding: 0 5px;
-  min-width: 25px;
+  min-width: 20px;
   color: #74c7ec;
   font-size: 16px;
 }
