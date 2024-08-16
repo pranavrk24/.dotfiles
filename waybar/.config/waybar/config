@@ -1,127 +1,34 @@
 {
-    "margin-top":5,
-    "margin-left":5,
-    "margin-right":5,
-    "spacing": 1,
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "backlight", "battery", "tray", "custom/notification"],
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
 
-    "hyprland/workspaces": {
-      "format": "{icon}",
-      "on-scroll-up": "hyprctl dispatch workspace e+1",
-      "on-scroll-down": "hyprctl dispatch workspace e-1"
-     },
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
 
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
 
-    "hyprland/window": {
-      "max-length": 200,
-      "separate-outputs": true
-    },
-
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "tray": {
-        "spacing": 5
-    },
-    "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%a %b %d %I:%M %p}",
-    },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "interval": 30,
-        "format": "{used:0.1f}G/{total:0.1f}G "
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["🌑","🌒","🌒","🌓","🌓","🌔","🌔","🌕","🌕"]
-    },
-    "battery": {
-        "states": {
-            "good": 80,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}%⚡",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": [" ", " ", " ", " ", " "]
-    },
-    "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": " ",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": [" ", " ", " "]
-        },
-        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-        "on-click-right": "pavucontrol"
-    },
-    "sway/workspaces": {
-        "format":" {name} ",
-        "disable-scroll": true,
-        // "persistent-workspaces": {
-        //     "1": [],
-        //     "2": [],
-        //     "3": [],
-        //     "4": [],
-        //     "5": [],
-        //     "6":[],
-        //     "7":[],
-        //     "8":[],
-        //     "9": [],
-        // }
-    },
-      "custom/notification": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "<span foreground='red'><sup></sup></span>",
-      "none": "",
-      "dnd-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-none": "",
-      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": ""
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  },
+    // Load Modules
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "pulseaudio", 
+        "network", 
+        "cpu", 
+        "memory", 
+        "keyboard-state", 
+        "battery", 
+        "clock", 
+        "tray",
+        "custom/notification",
+        "custom/exit"
+    ]
 }
 
