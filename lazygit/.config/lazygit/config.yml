@@ -3,4 +3,4 @@ gui:
   showIcons: true
 git:
   paging:
-    useConfig: true
+    pager: delta --dark --paging=never
