@@ -1,5 +1,49 @@
 return {
   {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("kanagawa").setup({
+        theme = "wave",
+        background = {
+          dark = "wave",
+          light = "lotus",
+        },
+      })
+      -- vim.cmd.colorscheme("kanagawa")
+    end,
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup({
+        terminal_colors = true, -- add neovim terminal colors
+        undercurl = true,
+        underline = true,
+        bold = true,
+        italic = {
+          strings = true,
+          emphasis = true,
+          comments = true,
+          operators = false,
+          folds = true,
+        },
+        strikethrough = true,
+        invert_selection = false,
+        invert_signs = false,
+        invert_tabline = false,
+        invert_intend_guides = false,
+        inverse = true, -- invert background for search, diffs, statuslines and errors
+        contrast = "hard", -- can be "hard", "soft" or empty string
+        palette_overrides = {},
+        overrides = {},
+        dim_inactive = false,
+        transparent_mode = false,
+      })
+      -- vim.cmd.colorscheme("gruvbox")
+    end,
+  },
+  {
     "folke/tokyonight.nvim",
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
@@ -11,19 +55,8 @@ return {
         transparent = true,
         sidebars = { "qf", "vista_kind", "terminal", "packer" },
       })
-      -- load the colorscheme here
-      -- vim.cmd.colorscheme("tokyonight")
+      vim.cmd.colorscheme("tokyonight")
     end,
-  },
-  {
-    "ellisonleao/gruvbox.nvim",
-    name = "gruvbox",
-    priority = 1000,
-    config = function()
-      require("gruvbox").setup({})
-    end,
-    -- load the colorscheme here
-    -- vim.cmd("colorscheme gruvbox"),
   },
   {
     "catppuccin/nvim",
@@ -35,8 +68,8 @@ return {
         flavour = "mocha",
         term_colors = false,
         styles = {
-          keywords = { "italic" },
-          functions = { "italic" },
+          -- keywords = { "italic" },
+          -- functions = { "italic" },
         },
         integrations = {
           cmp = true,
@@ -91,7 +124,7 @@ return {
         },
       })
       -- load the colorscheme here
-      vim.cmd.colorscheme("catppuccin")
+      -- vim.cmd.colorscheme("catppuccin")
     end,
   },
 }
