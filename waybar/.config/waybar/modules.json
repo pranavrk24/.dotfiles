@@ -4,27 +4,18 @@
     "on-click": "activate",
     "active-only": false,
     "all-outputs": true,
-    "format": "{}",
+    "format": "{icon}",
     "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": ""
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九"
     }
-    // "persistent-workspaces": {
-    //   "*": 5
-    // }
-  },
-
-  // Hyprland Window
-  "hyprland/window": {
-    // "rewrite": {
-    //   "(.*) - Brave": "$1",
-    //   "(.*) - Chromium": "$1",
-    //   "(.*) - Brave Search": "$1",
-    //   "(.*) - Outlook": "$1",
-    //   "(.*) Microsoft Teams": "$1"
-    // },
-    "separate-outputs": true
   },
 
   // Rofi Application Launcher
@@ -87,27 +78,8 @@
     // "on-click": "alacritty -e htop"
   },
 
-  // Harddisc space used
-  "disk": {
-    "interval": 30,
-    "format": "D {percentage_used}% ",
-    "path": "/",
-    "on-click": "alacritty -e htop"
-  },
-
   "hyprland/language": {
     "format": "/ K {short}"
-  },
-
-  // Group Hardware
-  "group/hardware": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 300,
-      "children-class": "not-memory",
-      "transition-left-to-right": false
-    },
-    "modules": ["custom/system", "disk", "cpu", "memory", "hyprland/language"]
   },
 
   // Network
@@ -121,7 +93,7 @@
     "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "alacritty -e nmtui"
+    "on-click": "nm-connection-editor"
   },
 
   // Battery
@@ -136,8 +108,6 @@
     "format-charging": "  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-alt": "{icon}  {time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": [" ", " ", " ", " ", " "]
   },
 
@@ -177,13 +147,6 @@
     "interval": 30,
     "on-click": "blueman-manager",
     "format-no-controller": ""
-  },
-
-  // Other
-  "user": {
-    "format": "{user}",
-    "interval": 60,
-    "icon": false
   },
 
   // Idle Inhibator

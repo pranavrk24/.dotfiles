@@ -13,8 +13,7 @@
         "~/.config/waybar/modules.json"
     ],
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/workspaces"
     ],
     "modules-center": [
     ],
