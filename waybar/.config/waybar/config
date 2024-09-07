@@ -16,15 +16,14 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
+        "clock", 
     ],
     "modules-right": [
         "pulseaudio", 
         "network", 
         "cpu", 
         "memory", 
-        "keyboard-state", 
         "battery", 
-        "clock", 
         "tray",
         "custom/notification",
         "custom/exit"

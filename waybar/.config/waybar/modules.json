@@ -18,15 +18,6 @@
     }
   },
 
-  // Rofi Application Launcher
-  "custom/appmenu": {
-    "format": "Apps",
-    "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings",
-    "on-click": "rofi -show drun -replace",
-    "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
-    "tooltip": false
-  },
-
   // Power Menu
   "custom/exit": {
     "format": "",
