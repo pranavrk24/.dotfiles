@@ -69,7 +69,7 @@ return {
         term_colors = false,
         styles = {
           -- keywords = { "italic" },
-          -- functions = { "italic" },
+          functions = { "italic" },
         },
         integrations = {
           cmp = true,

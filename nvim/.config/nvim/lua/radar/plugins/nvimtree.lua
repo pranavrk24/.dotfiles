@@ -7,6 +7,11 @@ return {
   },
   config = function()
     require("nvim-tree").setup({
+      actions = {
+        open_file = {
+          quit_on_open = true,
+        },
+      },
       disable_netrw = true,
       hijack_netrw = true,
       prefer_startup_root = true,
