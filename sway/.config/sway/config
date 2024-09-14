@@ -6,24 +6,6 @@
 
 default_border none
 
-### Rounded corners
-corner_radius 15
-smart_corner_radius enable
-
-### Blur
-blur enable
-blur_xray off
-blur_passes 2
-blur_radius 2
-
-### Shadows
-shadows on
-shadows_on_csd off
-shadow_blur_radius 10
-shadow_color #2b4f4f
-
-default_dim_inactive 0.2
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -40,7 +22,7 @@ set $term wezterm
 set $web firefox
 
 # Your preferred browser
-set $file pcmanfm
+set $file nautilus
 
 # gtk themes
 exec always {
@@ -181,18 +163,18 @@ input "10248:514:ASUF1204:00_2808:0202_Touchpad" {
     bindswitch --reload --locked lid:on output $primary disable
     bindswitch --reload --locked lid:off output $primary enable
 
-    # workspace 1 output $secondary
-    # workspace 2 output $secondary
-    # workspace 3 output $secondary
-    # workspace 4 output $secondary
-    # workspace 5 output $secondary
-    # workspace 6 output $secondary
-    #
-    # workspace 7 output $primary
-    # workspace 8 output $primary
-    # workspace 9 output $primary
-    # workspace 10 output $primary
-    #
+    workspace 1 output $secondary
+    workspace 2 output $secondary
+    workspace 3 output $secondary
+    workspace 4 output $secondary
+    workspace 5 output $secondary
+    workspace 6 output $secondary
+
+    workspace 7 output $primary
+    workspace 8 output $primary
+    workspace 9 output $primary
+    workspace 10 output $primary
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
