@@ -57,6 +57,66 @@ return {
       on_attach = on_attach,
     })
 
+    -- css server
+    lspconfig["cssls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- json server
+    lspconfig["jsonls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "json", "jsonc" },
+      settings = {
+        json = {
+          -- Schemas https://www.schemastore.org
+          schemas = {
+            {
+              fileMatch = { "package.json" },
+              url = "https://json.schemastore.org/package.json",
+            },
+            {
+              fileMatch = { "tsconfig*.json" },
+              url = "https://json.schemastore.org/tsconfig.json",
+            },
+            {
+              fileMatch = {
+                ".prettierrc",
+                ".prettierrc.json",
+                "prettier.config.json",
+              },
+              url = "https://json.schemastore.org/prettierrc.json",
+            },
+            {
+              fileMatch = { ".eslintrc", ".eslintrc.json" },
+              url = "https://json.schemastore.org/eslintrc.json",
+            },
+            {
+              fileMatch = { ".babelrc", ".babelrc.json", "babel.config.json" },
+              url = "https://json.schemastore.org/babelrc.json",
+            },
+            {
+              fileMatch = { "lerna.json" },
+              url = "https://json.schemastore.org/lerna.json",
+            },
+            {
+              fileMatch = { "now.json", "vercel.json" },
+              url = "https://json.schemastore.org/now.json",
+            },
+            {
+              fileMatch = {
+                ".stylelintrc",
+                ".stylelintrc.json",
+                "stylelint.config.json",
+              },
+              url = "http://json.schemastore.org/stylelintrc.json",
+            },
+          },
+        },
+      },
+    })
+
     -- typescript server
     lspconfig["ts_ls"].setup({
       capabilities = capabilities,
@@ -75,12 +135,6 @@ return {
       on_attach = on_attach,
       cmd = { "svelteserver", "--stdio" },
       filetypes = { "svelte" },
-    })
-
-    -- css server
-    lspconfig["cssls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     -- tailwindcss server
@@ -108,10 +162,10 @@ return {
     })
 
     -- ruby server
-    -- lspconfig["ruby_lsp"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    -- })
+    lspconfig["ruby_lsp"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
 
     -- lua server (with special settings)
     lspconfig["lua_ls"].setup({
