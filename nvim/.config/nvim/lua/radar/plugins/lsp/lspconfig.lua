@@ -44,21 +44,10 @@ return {
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    local border = {
-      { "┌", "FloatBorder" },
-      { "─", "FloatBorder" },
-      { "┐", "FloatBorder" },
-      { "│", "FloatBorder" },
-      { "┘", "FloatBorder" },
-      { "─", "FloatBorder" },
-      { "└", "FloatBorder" },
-      { "│", "FloatBorder" },
-    }
-
     -- Add the border on hover and on signature help popup window
     local handlers = {
-      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
     }
 
     local x = vim.diagnostic.severity
@@ -66,6 +55,7 @@ return {
       virtual_text = { prefix = "●" },
       signs = { text = { [x.ERROR] = " ", [x.WARN] = " ", [x.HINT] = " ", [x.INFO] = " " } },
       underline = true,
+      float = { border = "rounded" },
     })
 
     -- html server
