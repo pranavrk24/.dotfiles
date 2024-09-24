@@ -44,6 +44,23 @@ return {
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
+    local border = {
+      { "┌", "FloatBorder" },
+      { "─", "FloatBorder" },
+      { "┐", "FloatBorder" },
+      { "│", "FloatBorder" },
+      { "┘", "FloatBorder" },
+      { "─", "FloatBorder" },
+      { "└", "FloatBorder" },
+      { "│", "FloatBorder" },
+    }
+
+    -- Add the border on hover and on signature help popup window
+    local handlers = {
+      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+    }
+
     local x = vim.diagnostic.severity
     vim.diagnostic.config({
       virtual_text = { prefix = "●" },
@@ -53,18 +70,21 @@ return {
 
     -- html server
     lspconfig["html"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- css server
     lspconfig["cssls"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- json server
     lspconfig["jsonls"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "json", "jsonc" },
@@ -119,18 +139,21 @@ return {
 
     -- typescript server
     lspconfig["ts_ls"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- astro language server
     lspconfig["astro"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- svelte language server
     lspconfig["svelte"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
       cmd = { "svelteserver", "--stdio" },
@@ -139,36 +162,42 @@ return {
 
     -- tailwindcss server
     lspconfig["tailwindcss"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- python server
     lspconfig["pyright"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- c/c++ server
     lspconfig["clangd"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- bash server
     lspconfig["bashls"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- ruby server
     lspconfig["ruby_lsp"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- lua server (with special settings)
     lspconfig["lua_ls"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
       settings = { -- custom settings for lua
@@ -191,6 +220,7 @@ return {
 
     -- golang server
     lspconfig["gopls"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
       cmd = { "gopls" },
@@ -208,12 +238,14 @@ return {
 
     -- templ
     lspconfig["templ"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- rust analyzer
     lspconfig["rust_analyzer"].setup({
+      handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
       cmd = { "rustup", "run", "stable", "rust-analyzer" },
@@ -234,12 +266,14 @@ return {
 
     -- erlang
     -- lspconfig["erlangls"].setup({
+    -- handlers = handlers,
     --   capabilities = capabilities,
     --   on_attach = on_attach,
     -- })
 
     -- terraform
     -- lspconfig["terraformls"].setup({
+    -- handlers = handlers,
     --   capabilities = capabilities,
     --   on_attach = on_attach,
     -- })
