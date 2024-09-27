@@ -256,16 +256,22 @@ return {
 
     -- erlang
     -- lspconfig["erlangls"].setup({
-    -- handlers = handlers,
+    --   handlers = handlers,
     --   capabilities = capabilities,
     --   on_attach = on_attach,
     -- })
-
+    --
     -- terraform
     -- lspconfig["terraformls"].setup({
     -- handlers = handlers,
     --   capabilities = capabilities,
     --   on_attach = on_attach,
     -- })
+    --
+    lspconfig["gleam"].setup({
+      handlers = handlers,
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
   end,
 }
