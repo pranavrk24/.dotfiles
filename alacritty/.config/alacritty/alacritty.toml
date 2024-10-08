@@ -1,7 +1,9 @@
 live_config_reload = true
 
 import = [
-  "~/.config/alacritty/themes/catppuccin-mocha.toml"
+  # "~/.config/alacritty/themes/catppuccin-mocha.toml"
+  # "~/.config/alacritty/themes/kanagawa-wave.toml"
+  "~/.config/alacritty/themes/gruvbox-material-hard-dark.toml"
 ]
 
 [env]
@@ -47,7 +49,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
 dynamic_title = false
-# opacity = 0.9
+opacity = 0.95
 
 [window.padding]
 x = 2
