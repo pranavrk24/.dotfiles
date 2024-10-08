@@ -7,8 +7,8 @@ return {
         theme = "wave",
         background = {
           dark = "wave",
-          light = "lotus",
         },
+        transparent = true,
       })
       vim.cmd.colorscheme("kanagawa")
     end,

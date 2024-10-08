@@ -18,7 +18,7 @@ vim.opt.fillchars = {
 vim.opt.hlsearch = false -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true -- ignore case in search patterns
 vim.opt.list = true
-vim.opt.listchars = { tab = "→ ", extends = "›", precedes = "‹", nbsp = "␣", trail = "·", eol = "↲" }
+vim.opt.listchars = { tab = "→ ", extends = "›", precedes = "‹", nbsp = "␣", trail = "·" }
 vim.opt.number = true -- set numbered lines
 vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
 vim.opt.pumheight = 10 -- pop up menu height
