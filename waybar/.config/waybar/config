@@ -2,7 +2,7 @@
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
 
-    "height": 30, // Waybar height (to be removed for auto height)
+    // "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
 
     "spacing": 4, // Gaps between modules (4px)
@@ -13,18 +13,16 @@
         "~/.config/waybar/modules.json"
     ],
     "modules-left": [
-        // "hyprland/workspaces"
-        "sway/workspaces"
+        "hyprland/workspaces"
+        // "sway/workspaces"
     ],
     "modules-center": [
-        "clock", 
+        "clock",
     ],
     "modules-right": [
-        "pulseaudio", 
-        "network", 
-        "cpu", 
-        "memory", 
-        "battery", 
+        "pulseaudio",
+        "network",
+        "battery",
         "tray",
         "custom/notification",
         "custom/exit"
