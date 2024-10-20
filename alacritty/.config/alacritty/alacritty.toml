@@ -1,8 +1,6 @@
 live_config_reload = true
 
 import = [
-  # "~/.config/alacritty/themes/catppuccin-mocha.toml"
-  # "~/.config/alacritty/themes/kanagawa-wave.toml"
   "~/.config/alacritty/themes/gruvbox-material-hard-dark.toml"
 ]
 

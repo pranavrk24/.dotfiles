@@ -7,7 +7,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = "Rosé Pine (Gogh)"
+config.color_scheme = "Gruvbox dark, hard (base16)"
 
 config.font_size = 14
 config.font = wezterm.font_with_fallback({
