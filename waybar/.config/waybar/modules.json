@@ -21,34 +21,23 @@
 
   // Power Menu
   "custom/exit": {
-    "format": "",
+    "format": "   ",
     "tooltip-format": "Powermenu",
     "on-click": "wlogout -b 4",
     "tooltip": false
   },
 
-  // Keyboard State
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
-    }
-  },
-
   // System tray
   "tray": {
-    // "icon-size": 21,
+    "icon-size": 17,
     "spacing": 5
   },
 
   // Clock
   "clock": {
-    // "timezone": "America/New_York",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "  {:%H:%M}",
+    "format-alt": " {:%H:%M   %Y, %d %B, %A}"
   },
 
   // System
@@ -64,13 +53,13 @@
   // Network
   "network": {
     "format": "{ifname}",
-    "format-wifi": "   {signalStrength}%",
-    "format-ethernet": "  {ipaddr}",
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈁 {ipaddr}",
     "format-disconnected": "Disconnected ⚠",
     "tooltip-format": " {ifname} via {gwaddri}",
-    "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
+    "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
     "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
-    "tooltip-format-disconnected": "Disconnected",
+    "tooltip-format-disconnected": "󰈂 Disconnected",
     "max-length": 50,
     "on-click": "nm-connection-editor"
   },
@@ -82,34 +71,39 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}   {capacity}%",
+    "format": "{icon} {capacity}%",
     "format-charging": "⚡ {capacity}%",
-    "format-charging": "  {capacity}%",
     "format-plugged": "  {capacity}%",
-    "format-alt": "{icon}  {time}",
+    "format-alt": "{icon} {time}",
     "format-icons": [" ", " ", " ", " ", " "]
   },
 
   // Pulseaudio
   "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{icon}  {volume}%",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+    "format": "{icon} {volume} %",
+    "format-bluetooth": "{icon}  {volume} %",
+    "format-muted": "",
     "format-icons": {
       "headphone": "",
-      "hands-free": "",
-      "headset": "",
+      "hands-free": "",
+      "headset": "",
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", " ", " "]
+      "default": ["", "", "󰕾", ""],
+      "ignored-sinks": ["Easy Effects Sink"]
     },
-    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-    "on-click-right": "pavucontrol"
+    "scroll-step": 5.0,
+    "on-click-right": "pavucontrol -t 3",
+    "smooth-scrolling-threshold": 1
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume} %",
+    "format-source-muted": "",
+    "on-click-right": "pavucontrol -t 4",
+    "scroll-step": 5
   },
 
   // Backlight
