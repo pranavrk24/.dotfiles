@@ -7,7 +7,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = "Gruvbox dark, hard (base16)"
+config.color_scheme = "GruvboxDarkHard"
 
 config.font_size = 14
 config.font = wezterm.font_with_fallback({
@@ -21,7 +21,7 @@ config.font = wezterm.font_with_fallback({
 -- FiraCode
 config.harfbuzz_features = { "zero", "cv02", "ss02", "ss03", "ss05" }
 
--- config.window_background_opacity = 0.9
+config.window_background_opacity = 0.9
 
 config.warn_about_missing_glyphs = false
 
