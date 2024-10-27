@@ -36,16 +36,11 @@
   // Clock
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "  {:%H:%M}",
-    "format-alt": " {:%H:%M   %Y, %d %B, %A}"
+    "format": "  {:%a %I:%M %p}",
+    "format-alt": " {:%a %I:%M   %Y, %d %B, %A}"
   },
 
   // System
-  "custom/system": {
-    "format": "",
-    "tooltip": false
-  },
-
   "hyprland/language": {
     "format": "/ K {short}"
   },

@@ -1,5 +1,5 @@
 * {
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "Fira Code Nerd Font";
   font-weight: bold;
   min-height: 0;
   /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
@@ -12,10 +12,6 @@
 
 window#waybar {
   background: rgba(0, 0, 0, 0);
-  /*border-bottom: 1px solid @unfocused_borders;*/
-  /*border-radius: 10px;*/
-  /*color: #cba6f7;*/
-  /*border: 1px solid #cba6f7;*/
 }
 
 window#waybar.hidden {
@@ -75,10 +71,15 @@ tooltip label {
   border-radius: 15px;
 }
 
+#pulseaudio,
+#pulseaudio#microphone {
+  color: #fff;
+  border-radius: 10px;
+}
+
 #clock,
 #battery,
 #network,
-#pulseaudio,
 #wireplumber,
 #mode,
 #tray,
