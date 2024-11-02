@@ -7,6 +7,7 @@
         "~/.config/waybar/modules.json"
     ],
     "modules-left": [
+        "custom/logo",
         "hyprland/workspaces"
         // "sway/workspaces"
     ],
