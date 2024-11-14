@@ -268,7 +268,15 @@ return {
     --   on_attach = on_attach,
     -- })
     --
-    lspconfig["gleam"].setup({
+    -- Gleam
+    -- lspconfig["gleam"].setup({
+    --   handlers = handlers,
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
+
+    -- Zig
+    lspconfig["zls"].setup({
       handlers = handlers,
       capabilities = capabilities,
       on_attach = on_attach,
